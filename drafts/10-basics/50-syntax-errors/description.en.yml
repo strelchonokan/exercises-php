@@ -1,11 +1,11 @@
 ---
 
-name: Синтаксические ошибки
+name:  Syntax errors
 theory: |
 
-  Если программа на PHP написана синтаксически некорректно, то интерпретатор выводит на экран соответствующее сообщение, а также указание на файл и строчку в нём, где по его мнению произошла ошибка. _Синтаксическая ошибка_ возникает в том случае, когда код был записан с нарушением грамматических правил. В человеческих языках грамматика важна, но текст с ошибками чаще всего можно понять и прочитать. В программировании всё строго. Любое мельчайшее нарушение — и программа даже не запустится. Примером может быть забытая `;`, неправильно расставленные скобки и другие детали.
+  If a PHP program is written syntactically incorrectly, the interpreter will display a corresponding message on the screen, along with a pointer to the file and line where it thinks the error occurred. _Syntax errors_ occur when the code has grammatical mistakes. Grammar is essential to human language, but a text with grammar mistakes can still be read and understood. However, when it comes to programming, things are much more strict. Any tiny violation and the program won't even start. Maybe you've mixed up your brackets, or there's a `;`, that you forgot to add — these are just some examples of such mistakes.
 
-  Вот пример кода с синтаксической ошибкой:
+  Here is an example of some code with a syntax error:
 
   ```php
   <?php
@@ -13,22 +13,22 @@ theory: |
   print_r('Hodor')
   ```
 
-  Если запустить код выше, то мы увидим следующее сообщение: `$ PHP Parse error:  syntax error, unexpected end of file in /private/var/tmp/index.php on line 4`. Подобные синтаксические ошибки в PHP относятся к разряду "Parse error". Как видно, в конце приводится путь до файла и номер строчки.
+  If you run the code above, you'll see the following message: `$ PHP Parse error:  syntax error, unexpected end of file in /private/var/tmp/index.php on line 4`. These syntax errors in PHP are classified as "Parse errors". As you can see, the path to the file and the line number are given at the end.
 
-  С одной стороны, ошибки "Parse error" — самые простые, потому что они связаны исключительно с грамматическими правилами написания кода, а не с самим смыслом кода. Их легко исправить: нужно лишь найти нарушение в записи.
+  On the one hand, "Parse error" errors are the simplest, because they're ony related to the grammatical rules of code writing, and not to the meaning of the code itself. You can easily fix it once you find it.
 
-  С другой стороны, интерпретатор не всегда может чётко указать на это нарушение. Поэтому бывает, что забытую скобку нужно поставить не туда, куда указывает сообщение об ошибке.
+  On the other hand, the interpreter won't always tell you the correct position of an error. Sometimes you need to add a forgotten bracket to a different place than where the error message says.
 
 instructions: |
 
-  Это задание не связано с уроком напрямую. Но будет полезным потренироваться с выводом на экран.
+  This task isn't directly related to the lesson, but it would be useful to practice with printing anyway.
 
-  Выведите на экран `What Is Dead May Never Die`.
+  Print `What Is Dead May Never Die`.
 
 tips: []
 
 definitions:
-  - name: "Синтаксическая ошибка"
-    description: "нарушение грамматических правил языка программирования."
-  - name: "Parse error (ошибка парсинга)"
-    description: "тип ошибок в PHP, возникающих при наличии синтаксических ошибок в коде."
+  - name: "Syntax errors"
+    description: "are a violation of the grammatical rules of a programming language."
+  - name: "Parse error"
+    description: "is a type of PHP error that occurs when there are syntax errors in the code."
