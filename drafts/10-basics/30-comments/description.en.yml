@@ -1,17 +1,17 @@
 ---
 
-name: Комментарии
+name: Comments
 theory: |
 
-  Кроме кода, в файлах с исходным кодом могут находиться комментарии. Это текст, который не является частью программы, и нужен программистам для пометок. С их помощью добавляют пояснения, как работает код, какие ошибки нужно поправить или не забыть что-то позже добавить.
+  Almost every programming language allows you to add comments to your code. This is text that isn't part of the program and is needed for programmers to make notes. They help explain how the code works, what errors need to be corrected, or what not to forget to add later.
 
-  Комментарии в PHP бывают двух видов:
+  Comments in PHP come in two flavors:
 
-  ## Однострочные комментарии
+  ## Single line comments
 
-  _Однострочные комментарии_ начинаются с `//`. После этих символов может следовать любой текст, вся строчка не будет анализироваться и исполняться.
+  _Single line comments start with `//`. Any text can go after these characters, the whole line will be left alone when the program is run.
 
-  Комментарий может занимать всю строчку. Если одной строчки мало, то создаются несколько комментариев:
+  A comment can take up a whole line. Or you can create several comments if one line isn't enough:
 
   ```php
   <?php
@@ -20,16 +20,16 @@ theory: |
   // For Lanisters!
   ```
 
-  Комментарий может находиться на строчке после какого-нибудь кода:
+  Or it can go after code on the same line:
 
   ```php
   <?php
   print_r('I am the King'); // For Lannisters!
   ```
 
-  ## Многострочные комментарии
+  ## Multi-line comments
 
-  _Многострочные комментарии_ начинаются с `/*` и заканчиваются на `*/`. Между ними каждая строчка должна начинаться с символа `*`.
+  _Multiline comments_ start with `/*` and end with `*/`. Each line between them must begin with a `*`.
 
   ```php
   <?php
@@ -41,20 +41,20 @@ theory: |
   ```
 
 instructions: |
-  Создайте однострочный комментарий с текстом: `You know nothing, Jon Snow!`.
+  Create a one-line comment with the text: `You know nothing, Jon Snow!`.
 
 tips: []
 
 definitions:
-  - name: Комментарий
+  - name: Comment
     description: |
-      текст в коде программы, который не влияет на функциональность, и добавляется программистами для себя и своих коллег.
+      text in program code that doesn't affect functionality, and is added by programmers for themselves and their colleagues.
 
-      `// однострочный комментарий`
+      `// single-line comment`
 
       ```
       /*
-      * многострочный комментарий
-      * многострочный комментарий
+      * multiline comment
+      * multiline comment
       */
       ```
