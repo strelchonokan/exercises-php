@@ -1,14 +1,14 @@
 ---
 
-name: Привет, Мир!
+name: Hello, World!
 theory: |
-  По традиции начнём с написания программы "Hello, World!". Эта программа будет выводить на экран текст:
+  As is our tradition, we'll begin by writing the 'Hello, World!' program. The program will print the following text:
 
   <pre class='hexlet-basics-output'>
   Hello, World!
   </pre>
 
-  Вывод на экран выполняется с помощью специальной команды `echo`, после которой в одиночных или двойных кавычках указывается строка для вывода. В конце обязательно поставить точку с запятой.
+  Output to the screen is done with a special command `echo`, followed by a single or double-quoted string to be output. Be sure to put a semicolon at the end.
 
   ```php
   <?php
@@ -18,7 +18,7 @@ theory: |
 
   https://replit.com/@hexlet/php-basics-hello-world-echo
 
-  Есть и другие способы вывести строку на экран. Например, использовать функцию (с этим понятием мы познакомимся позже) `print_r()`. В этом случае строка указывается в скобках сразу после имени функции. В конце также нужно ставить `;`.
+  There are other ways to display a string on the screen. For example, you can use the function (a concept we will get to know later) `print_r()`. In this case, the string is entered in parentheses immediately after the function name. You also need to put `;` at the end.
 
   ```php
   <?php
@@ -28,10 +28,10 @@ theory: |
 
   https://replit.com/@hexlet/php-basics-hello-world-printr
 
-  В простых ситуациях между этими конструкциями нет никакой разницы. Можно использовать как один способ вывода, так и другой. В более сложных, там где на экран нужно выводить не просто числа или строки, а, например, массивы — `echo` не сможет этого сделать, а `print_r()` всё выведет.
+  In simple situations, there's no difference between these constructions. You can use either one method of output or the other. In more complex cases, where you want to display not just numbers or strings, but, for example, arrays, `echo` won't be able to do this, but `print_r()` will display everything.
 
 instructions: |
-  Наберите в редакторе код из задания символ в символ и нажмите «Проверить».
+  Copy the exact code from the instructions into the editor and run it by clicking «Run».
 
   ```php
   <?php
@@ -39,8 +39,8 @@ instructions: |
   print_r('Hello, World!');
   ```
 
-  Внимание: если вы напишете `heLLo, woRld!` вместо `Hello, World!`, то это будет считаться другим текстом, потому что заглавные и строчные буквы — разные символы. Размер буквы называют _регистром_ и говорят: _регистр — важен!_ Это касается почти всего в коде, поэтому привыкайте всегда обращать внимание на регистр.
+  Note: If you write `heLLo, woRld!` instead of `Hello, World!`, it will be considered different text because upper and lower case letters are different characters. _Case is important!_ This rule affects almost everything in coding, so make sure you get used to paying close attention to the case at all times.
 
 tips:
   - |
-    [Немного о 'Hello, World!'](https://ru.hexlet.io/blog/posts/moy-chelovek-menya-ponimaet-istoriya-frazy-hello-world-i-ee-analogov)
+#    [Немного о 'Hello, World!'](https://ru.hexlet.io/blog/posts/moy-chelovek-menya-ponimaet-istoriya-frazy-hello-world-i-ee-analogov)
