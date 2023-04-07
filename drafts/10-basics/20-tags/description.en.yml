@@ -1,13 +1,13 @@
 ---
 
-name: Теги
+name: Tags
 theory: |
-  PHP — это, вероятно, единственный язык, в котором нельзя начать писать код сразу. Такой код будет воспринят интерпретатором (программой, выполняющей код) как обычный текст. Любой код на PHP должен быть обернут в конструкцию `<?php ?>`.
+  PHP is probably the only language in which you can't start writing code right away. Such code will be perceived by the interpreter (the program executing the code) as plain text. Any PHP code should be wrapped in a `<?php ?>` construct.
 
-  `<?php` — это открывающий тег, а `?>` — это закрывающий тег. PHP позволяет не указывать закрывающую часть `?>`. А руководство по оформлению кода PSR-12 вообще запрещает её указывать.
+  `<?php` is the opening tag and `?>` is the closing tag. PHP allows you to omit the closing part `?>`. And the PSR-12 code manual doesn't let you include it at all.
 
 instructions: |
-  Наберите код из примера, поставьте в начале тег `<?php`:
+  Type the code from the example, and put the `<?php` tag at the beginning:
 
   ```php
   <?php
@@ -16,9 +16,9 @@ instructions: |
   ```
 
 tips:
-  - "[Базовый стандарт написания кода (PSR-1)](https://www.php-fig.org/psr/psr-1/)"
-  - "[Руководство по оформлению кода (PSR-12)](https://www.php-fig.org/psr/psr-12/)"
+  - "[Basic Code Writing Standard (PSR-1)](https://www.php-fig.org/psr/psr-1/)"
+  - "[Code Design Guide (PSR-12)](https://www.php-fig.org/psr/psr-12/)"
 
 definitions:
-  - name: Интерпретатор
-    description: "программа, выполняющая код, написанный на языке программирования."
+  - name: Interpreter
+    description: "a program that executes code written in a programming language."
