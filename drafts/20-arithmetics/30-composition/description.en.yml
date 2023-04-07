@@ -1,8 +1,8 @@
 ---
 
-name: Композиция операций
+name: Composition of operations
 theory: |
-  А что, если понадобится вычислить такое выражение: `3 * 5 - 2`? Именно так мы и запишем:
+  Suppose we want to calculate an expression like `3 * 5 - 2`? This is how we'd write it down:
 
   ```php
   <?php
@@ -10,9 +10,9 @@ theory: |
   print_r(3 * 5 - 2); // => 13
   ```
 
-  Обратите внимание, что интерпретатор производит арифметические вычисления в правильном порядке: сначала деление и умножение, потом сложение и вычитание. Иногда этот порядок нужно изменить — об этом следующий урок.
+  Note that the interpreter performs arithmetic operations in the right order: first division and multiplication, then addition and subtraction.  Sometimes we want to change the order of operations. We'll dig into this topic in the next lesson.
 
-  Или другой пример:
+  Or another example:
 
   ```php
   <?php
@@ -20,22 +20,22 @@ theory: |
   print_r(2 * 4 * 5 * 10); // 2 * 4 * 5 * 10 = 8 * 5 * 10 = 40 * 10 => 400
   ```
 
-  Операции можно соединять друг с другом, получая возможность вычислять все более сложные составные выражения. Такое свойство операций называется композицией. Композиция арифметических операций в программировании аналогична композиции из школьной программы. Как вы узнаете дальше, композиция операций распространяется на вообще все операции, а не только арифметические.
+  We can combine operations, which allows us to calculate even more complex compound expressions. This property of operations is called composition. The composition of arithmetic operations in programming is similar to how it's done in school. As you'll later learn, the composition of operations applies to all operations in general, not just arithmetic operations.
 
-  Чтобы представить себе то, как происходят вычисления внутри интерпретатора, давайте разберем пример: `2 * 4 * 5 * 10`.
+  To visualize how calculations are done inside the interpreter, let's look at an example: `2 * 4 * 5 * 10`.
 
-  1. Сначала вычисляется `2 * 4` и получается выражение `8 * 5 * 10`.
-  1. Затем `8 * 5`. В итоге имеем `40 * 10`.
-  3. В конце концов происходит последнее умножение, и получается результат `400`.
+  1. First we calculate `2 * 4` and get `8 * 5 * 10`.
+  1. Then `8 * 5`. The result is `40 * 10`.
+  3. Finally, we do the last multiplication, and the result is `400`.
 
 instructions: |
 
-  Реализуйте программу, которая вычисляет и выводит на экран значение выражения:
+  Write a program that calculates and prints the value of this expression:
 
   ```
   8 / 2 + 5 - -3 / 2
   ```
 
-  Не вычисляйте ничего самостоятельно, ваша программа должна производить все вычисления сама.
+  Don't calculate anything manually, your program should do all the calculations on its own.
 
 tips: []
