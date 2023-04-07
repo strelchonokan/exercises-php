@@ -1,10 +1,10 @@
 ---
 
-name: Инструкции (Statements)
+name: Statements
 theory: |
-  Инструкция — это команда для компьютера выполнить что-то. Код на PHP — это набор инструкций, которые, как правило, отделяются друг от друга символом `;`.
+  A statement is a command given to a computer to do something. Code in PHP is a collection of instructions, usually separated from each other by a  `;`.
 
-  Вот пример кода с двумя инструкциями.
+  Here's an example of some code with two statements.
 
   ```php
   <?php
@@ -13,13 +13,13 @@ theory: |
   print_r('Dracarys!');
   ```
 
-  При запуске этого кода на экран последовательно выводятся два предложения:
+  When you run this code, two sentences are displayed in sequence:
 
   <pre class='hexlet-basics-output'>
   Mother of Dragons. Dracarys!
   </pre>
 
-  Теоретически инструкции можно написать последовательно друг за другом без переноса на новую строчку:
+  Theoretically, the instructions can be written one after the other without moving them to a new line:
 
   ```php
   <?php
@@ -27,27 +27,27 @@ theory: |
   print_r('Mother of Dragons.'); print_r('Drakarys!');
   ```
 
-  Результат на экране будет таким же, но такой код неудобен для чтения, поэтому инструкции располагают друг под другом.
+  But it's considered bad practice as it's difficult to read.
 
-  Почему это важно знать? Инструкция — это единица исполнения. Интерпретатор — программа, которая запускает код на PHP, выполняет инструкции строго по очереди. И мы, как разработчики, должны понимать этот порядок и уметь мысленно разделять программу на независимые части, удобные для анализа.
+  Why is it important to know? A statement is a unit of execution. The interpreter is a program that runs the code in PHP and executes the instructions strictly in order. An interpreter's principle of operation is (approximately) as follows. It reads the file with the code, splits the code into statements, and then executes them.
 
 instructions: |
-  Выведите на экран друг за другом три имени: _Robert_, _Stannis_, _Renly_. В результате на экране должно отобразиться:
+  Print these three names, one after the other: _Robert_, _Stannis_, _Renly_. As a result, the editor should print:
 
   <pre class='hexlet-basics-output'>
   RobertStannisRenly
   </pre>
 
-  Для каждого имени используйте свой собственный вызов `print_r()`.
+  Use a `print_r()` call for each name.
 
 tips:
   - |
-    [Немного об интерпретаторах](https://ru.wikipedia.org/wiki/Интерпретатор)
+    [A little about interpreters](https://en.wikipedia.org/wiki/Interpreter_(computing))
 
 definitions:
-  - name: Интерпретатор
+  - name: The interpreter
     description: |
-      программа, выполняющая код на PHP.
-  - name: Инструкция (statement)
+      is a program that runs the code in PHP.
+  - name: An instruction (statement)
     description: |
-      команда для компьютера, написанная на языке программирования. Код на PHP — это набор инструкций, разделенных (чаще всего) символом `;`.
+      is a command for a computer written in a programming language. PHP code is a set of instructions separated (most often) by a `;`.
