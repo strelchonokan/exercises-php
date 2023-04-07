@@ -1,48 +1,48 @@
 ---
 
-name: Арифметические операции
+name: Arithmetic Operations
 theory: |
-  На базовом уровне компьютеры оперируют только числами. Даже в прикладных программах на высокоуровневых языках внутри много чисел и операций над ними. К счастью, для старта достаточно знать обычную арифметику — с неё и начнем.
+  At the most basic level, computers only use numbers. Even in high-level language applications, there are many numbers and operations with them. Fortunately, all you need to know to get started is basic arithmetic, so let's start there.
 
-  Для сложения двух чисел в математике мы пишем, например, `3 + 4`. В программировании — то же самое. Вот программа, складывающая два числа:
+  To add two numbers in math we write something like `3 + 4`. The same goes for programming. Here's a program that adds two numbers:
 
   ```php
   <?php
 
-  // Не забываем точку с запятой в конце, так как каждая строчка в коде — инструкция.
+  // Don't forget the semicolon at the end, because every line in the code is an instruction.
   3 + 4;
   ```
 
-  _Помните про комментарии? Выше в коде после символов `//` — комментарий от учителя_.
+  _Remember comments? In the code above, after `//` you can see a comment from the teacher_.
 
-  Арифметика в программировании практически не отличается от школьной арифметики.
+  Arithmetic in programming is virtually the same as school arithmetic.
 
-  Инструкция `3 + 4;` заставит интерпретатор сложить числа и узнать результат. Эта программа будет работать, но в ней нет смысла, потому что по сути **мы не даём команду** интерпретатору, мы просто говорим ему «смотри, сумма трёх и четырёх». В реальной работе недостаточно сообщать интерпретатору о математическом выражении. Например, при создании интернет-магазина недостаточно просить интерпретатор посчитать стоимость товаров в корзине, а нужно просить посчитать стоимость **И** показать цену покупателю.
+  The instruction `3 + 4;` will force the interpreter to add the numbers and find the result. This program will work, but it's pointless, because **we're not really giving the interpreter a command, we're just telling it to calculate three plus four». In real life, you need to do more than just tell the interpreter about the mathematical expression on its own. For example, when creating an online store, it's not enough to ask the interpreter to calculate the cost of the goods in their shopping cart, you need to ask it to calculate the cost **AND** show the price to the customer.
 
-  Нам нужно попросить интерпретатор сложить `3 + 4` **И** дать команду сделать что-то с результатом. Например, вывести его на экран:
+  We need to ask the interpreter to add `3 + 4` **AND** give it a command to do something with the result. For example, print it:
 
   ```php
   <?php
 
-  // снова не забываем точку с запятой в конце строчки
+  // again, don't forget the semicolon at the end of the line
   print_r(3 + 4);
   ```
 
-  После запуска на экране появится результат:
+  After we run the program, the result will appear on the screen:
 
   <pre class='hexlet-basics-output'>
   7
   </pre>
 
-  Кроме сложения доступны следующие операции:
+  Besides addition, we can also use the following operations:
 
-  * `*` — умножение
-  * `/` — деление
-  * `-` — вычитание
-  * `%` — [остаток от деления](https://ru.wikipedia.org/wiki/Деление_с_остатком)
-  * `**` — возведение в степень
+  * `*` — multiplication
+  * `/` — division
+  * `-` — subtraction
+  * `%` — [remainder](https://en.wikipedia.org/wiki/Euclidean_division)
+  * `**` — exponentiation
 
-  Теперь давайте выведем на экран результат деления, а потом результат возведения в степень:
+  Now let’s print the result of a division, and then the result of an exponentiation:
 
   ```php
   <?php
@@ -51,18 +51,18 @@ theory: |
   print_r(3 ** 2); // => 9
   ```
 
-  Иногда для удобства мы будем показывать в комментариях результат запуска строчек кода вот так: `=> РЕЗУЛЬТАТ`. Например, `// => 4`.
+  Sometimes, for convenience, we'll show the result of running lines of code in the comments like this: `=> RESULT`. For example, `// => 4`.
 
-  Первая инструкция выведет на экран `4` (потому что 8 / 2 это 4), а вторая инструкция выведет на экран 9 (потому что 3<sup>2</sup> это 9).
+  The first statement will print `4` (since 8 / 2 is 4), and the second statement will print 9 (since 3<sup>2</sup> is 9).
 
 instructions: |
 
-  Выведите на экран результат деления числа `81` на `9`.
+  Divide `81` by `9` and display the result.
 
 tips:
   - |
-    Всегда отбивайте арифметические операторы пробелами от самих чисел (операндов) – это хороший стиль программирования. Поэтому в наших примерах `print_r(3 + 4)`, а не `print_r(3+4)`.
+    Always indent arithmetic operators with spaces between the numbers (operands). It's good form when programming. Therefore, in our examples, we have `print_r(3 + 4)` rather than `print_r(3+4)`.
   - |
-    Деление на ноль приводит к ошибке `Division by zero`. Чтобы его не допустить, нужно знать про условные конструкции (о них вы узнаете в следующих уроках).
+    Dividing by zero causes, unsurprisingly, a `Division by zero` error. To avoid it, you need to know about conditional constructs (you'll learn about them in future 
   - |
-    Если в редакторе есть запись `// BEGIN` и `// END`, то код нужно писать между этими строчками.
+    Type your code between the`// BEGIN` and `// END` lines in the editor.
