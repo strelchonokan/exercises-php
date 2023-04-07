@@ -1,34 +1,34 @@
 ---
 
-name: Линтер
+name: Linter
 theory: |
-  Теперь, когда мы уже научились писать простые программы, можно немного поговорить о том, как их писать.
+  Since we've learned to write simple programs, let's talk about the very process of writing.
 
-  Код нужно оформлять определённым образом, чтобы он был достаточно понятным и простым в поддержке. Специальные наборы правил — стандарты — описывают различные аспекты написания кода. Конкретно в PHP самым распространенными являются стандарты **PSR** (PHP Standards Recommendations или стандартные рекомендации PHP) от [PHP-FIG](https://www.php-fig.org/psr/). Рекомендация представляет из себя набор правил, призванных облегчить определённую сторону разработки (или решить какую-то определённую проблему). На текущий момент существует несколько утверждённых рекомендаций, каждая из них обозначена цифрой: PSR-1, PSR-2, PSR-3 и [другие](https://en.wikipedia.org/wiki/PHP_Standard_Recommendation). Со всеми этими рекомендациями вы будете постепенно знакомиться во время обучения и работы. Сейчас же остановимся на двух основных:
+  Code must be designed in a certain way so that it's clear and easy to maintain. Special sets of rules - standards - describe different aspects of code writing. Specifically in PHP, the most common standards are the **PSR** standards (PHP Standards Recommendations) from [PHP-FIG](https://www.php-fig.org/psr/). A recommendation is a set of rules designed to facilitate a particular aspect of development (or to solve a particular problem). Currently there are several approved recommendations, each labeled with a number: PSR-1, PSR-2, PSR-3 and [so on](https://en.wikipedia.org/wiki/PHP_Standard_Recommendation). You'll gradually become familiar with all of these recommendations as you learn and work. Now let's focus on the two main ones:
 
-  * PSR-1: [Basic Coding Standard](https://www.php-fig.org/psr/psr-1/) (Базовый стандарт написания кода). Это набор правил, определяющих, как следует оформлять программный код: как писать теги PHP, по каким правилам именовать классы, методы и константы классов. Он также затрагивает вопросы кодировки, автозагрузки, пространства имён и разделения ответственности между файлами. Это базовые правила, стандарт PSR-12 их расширяет.
-  * PSR-12: [Extended Coding Style](https://www.php-fig.org/psr/psr-12/) (Расширенный стандарт стиля кодирования, заменяет и дополняет устаревший PSR-2). Во-первых, этот стандарт требует выполнения правил PSR-1. Во-вторых, он добавляет множество новых требований: к отступам, файлам, строкам, ключевым словам, классам, управляющим конструкциям, области видимости и другим элементам.
+  * PSR-1: [Basic Coding Standard](https://www.php-fig.org/psr/psr-1/). This is a set of rules defining how to write PHP code, including how to write PHP tags, and what rules to use for naming classes, methods and class constants. It also touches on encoding, autoloading, namespaces, and sharing responsibility between files. These are basic rules; the PSR-12 standard expands on them.
+  * PSR-12: [Extended Coding Style](https://www.php-fig.org/psr/psr-12/). replaces and supplements the obsolete PSR-2. The first thing to mention is that this standard requires compliance with PSR-1 rules. Secondly, it adds many new requirements, for indentations, files, strings, keywords, classes, control structures, scope and other elements.
 
-  В любом языке программирования существуют специальные инструменты, так называемые **линтеры**, которые проверяют код на соответствие стандартам. Повсеместно используемым линтером в PHP является [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).
+  In any programming language, there are special tools, called **linters**, which check the code for compliance with standards. One commonly used linter in PHP is the [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).
 
-  Допустим, у нас есть файл с таким PHP-кодом:
+  Suppose we have a file with this PHP code:
 
   ```php
   <?php
 
-  // На следующей строке отступ равен одному табу
+  // On the next line, the indentation is one tab
     print_r (((8 / 2) + 5) - (-3 / 2));
 
   ?>
   ```
 
-  При проверке файла линтер найдёт следующие ошибки:
+  When you check the file, the linter will find the following errors:
 
-  * `Spaces must be used to indent lines; tabs are not allowed` — PSR-12 рекомендует делать отступ размером в четыре пробела, а в примере выше использована табуляция
-  * `A closing tag is not permitted at the end of a PHP file` — стандарт содержит требование опускать завершающий тег `?>`
-  * `Space before opening parenthesis of function call prohibited` — при вызове функции между именем функции и круглыми скобками не должно быть пробельных символов, а в проверяемом коде после имени `print_r` стоит один пробел
+  * `Spaces must be used to indent lines; tabs are not allowed` — PSR-12 recommends indenting four spaces, and the example above uses tabs
+  * `A closing tag is not permitted at the end of a PHP file` — the standard requires the closing tag `?>`
+  * `Space before opening parenthesis of function call prohibited` — when calling a function, there should be no whitespace between the function name and parentheses, and in the code being checked there is one space after `print_r` name
 
-  Исправим код, убрав закрывающий тег, отступы и пробел после имени функции:
+  Fix the code by removing the closing tag, indentation, and space after the function name:
 
   ```php
   <?php
@@ -36,12 +36,12 @@ theory: |
   print_r(((8 / 2) + 5) - (-3 / 2)); // => 10.5
   ```
 
-  Этот вариант уже не нарушает правил, и линтер будет «молчать».
+  This code doesn't violate the rules, and the linter will "say nothing", as it were.
 
-  Не «пугайтесь» обилию рекомендаций и правил. Большинство правил просты и понятны. Скорее всего, вы и так будете интуитивно придерживаться их в коде. С остальными вам помогут справиться время, опыт и линтер ;)
+  Don't be frightened by the abundance of recommendations and rules. Most of the rules are simple and straightforward. You'll most likely intuitively stick to them in the code anyway. Time, experience, and a linter will help you with the rest ;)
 
 instructions: |
 
-  Выведите на экран результат следующего вычисления: «разница между пятью в квадрате и произведением трёх и семи». Напишите код так, чтобы каждый оператор отделялся от операндов пробелами.
+  Print the result of the difference between five squared and the product of three and seven. Write the code so that each operator is separated from the operands with spaces.
 
-tips: []
+# tips: []
