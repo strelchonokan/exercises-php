@@ -1,24 +1,24 @@
 ---
 
-name: Коммутативная операция
+name: Commutative operation
 theory: |
-  Мы все помним со школы: «от перемены мест слагаемых сумма не меняется». Это один из базовых и интуитивно понятных законов арифметики, он называется **коммутативным законом**.
+  Do you remember the basic rule of arithmetic that changing the order of the numbers we're adding doesn't change the sum?  It's one of the most basic and intuitive rules of arithmetics, it's called the **commutative law**.
 
-  Бинарная операция считается коммутативной, если, поменяв местами операнды, вы получаете тот же самый результат. Очевидно, что сложение — коммутативная операция: _3 + 2 = 2 + 3_.
+  A binary operation is considered commutative if you get the same result after swapping operands. Obviously, addition is a commutative operation:  _3 + 2 = 2 + 3_.
 
-  А вот является ли коммутативной операция вычитания? Конечно, нет: _2 - 3 ≠ 3 - 2_. В программировании этот закон работает точно так же, как в арифметике.
+  But is subtraction a commutative operation? Of course not: _2 - 3 ≠ 3 - 2_. In programming, this law applies in the same way as in arithmetic.
 
-  Более того, большинство операций, с которыми мы будем сталкиваться в реальной жизни, не являются коммутативными. Отсюда вывод: всегда обращайте внимание на порядок того, с чем работаете.
+  Moreover, most of the operations we face in real life aren't commutative. In conclusion, you should always pay attention to the order of things you're working with.
 
 instructions: |
 
-  Напишите программу, которая считает и последовательно выводит на экран значения следующих математических выражений: «3 в степени 5» и «-8 разделить на -4».
+  Write a program that counts and sequentially displays the values of the following mathematical expressions: "3 to the power of 5" and "-8 divided by -4".
 
-  Обратите внимание, что результаты выведутся «слепленными» в одну строчку без пробела. Мы научимся решать эту проблему в будущих уроках.
+  Note that the results will appear stuck together, on one line, and without any spaces. We'll learn how to deal with this problem in future lessons.
 
 tips: []
 
 definitions:
-  - name: Коммутативность
+  - name: Commutativity
     description: |
-      свойство операции, когда изменение порядка операндов не влияет на результат. Например, сложение — коммутативная операция: от перемены мест слагаемых сумма не меняется.
+      is the property of an operation wherein changing the order of operands doesn't affect the result. For example, addition is a commutative operation; changing the order of the numbers we're adding doesn't change the result.
