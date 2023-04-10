@@ -1,6 +1,6 @@
 ---
 
-name: Типы данных PHP
+name: PHP Data Types
 description:
-  PHP — язык со слабой типизацией и неизменяемыми примитивными типами данных. Что произойдет, если мы попробуем умножить число на строку? Каким образом PHP понимает, что за тип данных перед ним? И что делает PHP, когда видит несоответствие типов? Ответы на эти вопросы вы найдете в текущем модуле.
+  PHP is a language with weak typing and immutable primitive data types. What happens if we try to multiply a number by a string? How does PHP know what type of data it's looking at? And what does PHP do when it sees a type mismatch? You'll find the answers to these questions in this module.
 
