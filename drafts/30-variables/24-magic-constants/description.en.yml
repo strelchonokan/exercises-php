@@ -1,28 +1,28 @@
 ---
 
-name: Магические константы
+name: Magic constants
 theory: |
 
-  Кроме обычных констант, в PHP существует отдельная группа — **магические константы**. Их отличия заключаются в следующем:
+  In addition to the usual constants, PHP has a separate group of **magic constants**. The differences are as follows:
 
-  * Магические константы невозможно определить самому, можно пользоваться только существующими.
-  * Магические константы начинаются и заканчиваются символами `__` (два подчёркивания).
-  * Магия заключается в том, что такие константы имеют одно и то же значение только в пределах определенной части программы.
+  * You can't define magic constants yourself, you can only use existing ones.
+  * Magic constants begin and end with `__` (two underscores).
+  * The magic is that the constants have the same value only within a certain part of the program.
 
-  Последний пункт может показаться странным. Какие же они константы, если их значение меняется? Прямо скажем, они не очень постоянные, но их изменения четко регламентированы и на практике не вызывают проблем. К подобным константам относятся, например, такие:
+  This last point may seem strange. What kind of constants are they if their value changes? To put it bluntly, they're not very constant, but their changes are clearly regulated and in practice don't cause problems. Such constants include, for example, the following:
 
-  * `__LINE__` — содержит текущую строку файла, в котором она используется
-  * `__FILE__` — путь до текущего файла
-  * `__DIR__` — путь до директории, в которой находится текущий файл
+  * `__LINE__` — contains the current line of the file it's used in
+  * `__FILE__` — path to the current file
+  * `__DIR__` — the path to the directory where the current file is located
 
 instructions: |
 
-  Выведите на экран путь до текущей директории, используя магическую константу.
+  Output the path to the current directory using a magic constant.
 
 tips:
   - |
-    [Магические константы](https://php.net/manual/ru/language.constants.predefined.php)
+    [Magic constants](https://php.net/manual/ru/language.constants.predefined.php)
 
 definitions:
-  - name: Магическая константа
-    description: специальная константа, доступная в PHP; содержит разное значение в разных контекстах.
+  - name: A magic constant
+    description: is a special constant available in PHP; it contains different values in different contexts.
