@@ -1,14 +1,14 @@
 ---
 
-name: Изменение переменной
+name: Changing a Variable
 theory: |
 
-  Само слово «переменная», говорит о том, что её можно менять. И действительно, с течением времени внутри программы значения переменных могут изменяться.
+  The word "variable" itself indicates that it can be changed. Indeed, the value of a variable can change throughout your code.
 
   ```php
   <?php
 
-  // greeting - переводится как приветствие
+  // greeting 
   $greeting = 'Father!';
   print_r($greeting);
   print_r($greeting);
@@ -18,20 +18,20 @@ theory: |
   print_r($greeting);
   ```
 
-  Имя осталось тем же, но внутри другие данные. Следует заметить, что переменные в PHP не требуют специального объявления. Вместо этого переменная объявляется при первом её использовании в программе.
+  The name remains unchanged, although it stores new data. Note that variables in PHP don't need to be declared. Instead, a variable is declared the first time it's used in a program.
 
-  Переменные - мощная, и в то же время опасная вещь. Никогда нельзя быть точно уверенным, что внутри неё записано, не проанализировав код, который находится перед переменной. Именно этим занимаются разработчики во время отладки, когда пытаются разобраться, почему программа не работает, или работает не так, как задумано.
+  Variables are a powerful yet dangerous thing. You can never be sure exactly what's written inside it without analyzing the code that comes before the variable. This is what developers do during debugging, when they try to figure out why the program doesn't work, or doesn't work as intended.
 
-  Как вы увидите позже, в PHP есть не только переменные. Более того, переменные не так часто используются с целью их менять. Намного чаще их используют с целью хранить.
+  As you'll see later, PHP has more than just variables. Moreover, variables are not often used with the goal of changing them in mind. They're more often used as a storage method.
 
 instructions: |
 
-  В упражнении определена переменная, внутри которой строка. Переопределите значение этой переменной и присвойте ей строку, в которой расположите символы первоначальной строки в обратном порядке.
+  In this exercise, a variable has been defined with a string inside it. Override the value of this variable and assign it a string in which the characters of the original string are arranged in reverse order.
 
 tips:
   - |
-    Если в редакторе есть запись `// BEGIN` и `// END`, то код нужно писать между этими строчками.
+    Type your code between the `// BEGIN` and `// END` lines in the editor.
 
 definitions:
-  - name: Переменная
-    description: способ сохранить информацию и дать ей имя для последующего использования в коде.
+  - name: A variable
+    description: is a way to store information and name it for later use in code.
