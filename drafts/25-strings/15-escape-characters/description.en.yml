@@ -1,16 +1,16 @@
 ---
 
-name: Экранирующие последовательности
+name: Escape equences
 theory: |
 
-  Мы хотим показать диалог Матери Драконов со своим ребенком:
+  We want to show a dialogue between the Mother of Dragons and her child:
 
   ```
   - Are you hungry?
   - Aaaarrrgh!
   ```
 
-  Если вывести на экран строку с таким текстом:
+  If you display a line with this text on the screen:
 
   ```php
   <?php
@@ -18,13 +18,13 @@ theory: |
   print_r("- Are you hungry?- Aaaarrrgh!");
   ```
 
-  то получится так:
+  it goes like this:
 
   ```
   - Are you hungry?- Aaaarrrgh!
   ```
 
-  Не то, что мы хотели. Строки расположены друг за другом, а не одна ниже другой. Нам нужно как-то сказать интерпретатору «нажать на энтер» — сделать перевод строки после вопросительного знака. Это можно сделать, используя символ перевода строки: `\n`.
+  Not what we wanted. The lines are one after the other, not one below the other. We need to somehow tell the interpreter to "hit enter", i.e., to go to the next line after the question mark. This can be done by using the line feed character: `\n`.
 
   ```php
   <?php
@@ -34,38 +34,38 @@ theory: |
 
   https://replit.com/@hexlet/php-basics-strings-newline
 
-  результат:
+  result:
 
   ```
   - Are you hungry?
   - Aaaarrrgh!
   ```
 
-  `\n` — это специальный символ. В литературе его часто обозначают как *LF* (Line Feed). Возможно вы сейчас подумали, что это опечатка, ведь здесь мы видим два символа `\` и `n`, но это не так. С точки зрения компьютера — это один невидимый символ перевода строки. Доказательство:
+  `\n` is a special symbol. In the literature, it's often referred to as the *LF* (Line Feed). You may have thought now that it was a typo because here we can see two characters, `\` and `n`, but that's not the case. From the computer's perspective, this is one invisible line feed character. Proof:
 
   ```php
   <?php
 
-  // Мы это не изучали, но вы должны знать правду
-  // Ниже код, который возвращает длину строки
+  // We didn't study it, but you should know the truth
+  // Below is some code that returns the length of a string
   strlen("a");    // 1
   strlen("\n");   // 1 !!!
   strlen("\n\n"); // 2 !!!
   ```
 
-  Почему так сделано? `\n` — всего лишь способ записать символ перевода строки, но сам перевод строки по своему смыслу – это один символ, правда, невидимый. Именно поэтому и возникла такая задача. Нужно было как-то представить его на клавиатуре. А поскольку количество знаков на клавиатуре ограничено и отдано под самые важные, то все специальные символы реализуются в виде таких обозначений.
+  Why is this done? `\n` is just a way to write the line feed character, but the line feed itself is really just one character, it's simply invisible. That's why this challenge arose. It had to be represented somehow on the keyboard. And since the number of characters on the keyboard is limited and given to the most important, all special characters are implemented in the form of these signs.
 
-  Символ перевода строки не является чем-то специфичным для программирования. Все, кто хоть раз печатал на компьютере, использовал перевод строки, нажимая на Enter. Во многих редакторах есть опция, позволяющая включить отображение невидимых символов — с её помощью можно понять, где они находятся (хотя это всего лишь схематичное отображение, у этих символов нет графического представления, они невидимые):
+  The line feed character isn't something specific to programming. Anyone who has ever typed on a computer has used the line feed by hitting Enter. Many editors have an option to enable the display of invisible characters; you can use it to see where they are (although it's only displayed a schematic display, these characters would otherwise have no graphical representation, they're invisible):
 
   <pre class='hexlet-basics-output'>
-  - Привет!¶
-  - О, привет!¶
-  - Как дела?
+  - Hey!¶
+  - Oh, hey!¶
+  - How's it going?
   </pre>
 
-  Устройство, которое выводит соответствующий текст, учитывает этот символ. Например, принтер при встрече с LF протаскивает бумагу вверх на одну строку, а текстовый редактор переносит весь последующий текст ниже, также на одну строку.
+  The device that outputs the corresponding text takes this character into account. For example, the printer pulls the paper up one line when it encounters the LF, and the text editor pulls all subsequent text below, also by one line.
 
-  `\n` — это пример **экранирующей последовательности** (escape sequence). Их ещё называют управляющими конструкциями.  Хотя таких символов не один десяток, в программировании часто встречаются всего несколько подобных символов. Кроме перевода строки, к ним относятся табуляция (разрыв, получаемый при нажатии на кнопку Tab) и возврат каретки (только в Windows). Нам, программистам, часто нужно использовать перевод строки `\n` для правильного форматирования текста.
+  `\n` is an example of an **escape sequence**. They're also called control constructs. Although there are more than a dozen such characters, there are often only a few such characters in programming. In addition to line feeds, these can include tabs (the break you get when you press the Tab button) and carriage returns (only in Windows). We programmers often need to use line feed `\n` for proper text formatting.
 
   ```php
   <?php
@@ -73,9 +73,9 @@ theory: |
   print_r("Gregor Clegane\nDunsen\nPolliver\nChiswyck");
   ```
 
-  **Внимание! Экранирующие последовательности вроде `\n` работают только внутри двойных кавычек!**
+  **Warning! Escape sequences like `\n` only work inside double quotes!**
 
-  На экран выведется:
+  The screen will display:
 
   <pre class='hexlet-basics-output'>
   Gregor Clegane
@@ -84,11 +84,11 @@ theory: |
   Chiswyck
   </pre>
 
-  Обратите внимание на следующие моменты:
+  Note the following points:
 
-  1. Не имеет значения, что стоит перед или после `\n`: символ или пустая строка. Перевод будет обнаружен и выполнен в любом случае.
+  1. It does not matter what comes before or after `\n`: a character or an empty string. The line feed will be spotted and executed in any case.
 
-  2. Помните, что строка может содержать один символ или вообще ноль символов. А ещё строка может содержать только `\n`. Проанализируйте следующий пример:
+  2. Remember that a string can contain a single character or zero characters. Also, a string can only contain `\n`. Analyze the following example:
 
       ```php
       <?php
@@ -98,14 +98,14 @@ theory: |
       print_r('Dunsen');
       ```
 
-      Здесь мы выводим одну строку с именем, потом одну строку «перевод строки», а потом еще одну строку. Программа выведет на экран:
+      Here we output one string with a name, then one string with a line feed and then another string. The program will display this on the screen:
 
       <pre class='hexlet-basics-output'>
       Gregor Clegane
       Dunsen
       </pre>
 
-  3. Если нам понадобится вывести `\n` именно как текст (два отдельных печатных символа), то можно воспользоваться уже известным нам способом экранирования, добавив ещё один `\` в начале. То есть последовательность `\\n` отобразится как символы `\` и `n`, идущие друг за другом.
+  3. If we need to output `\n` as text (two separate printable characters), we can use the escape method we already know, adding another `\` at the beginning. I.e., the sequence `\\n` will appear as the characters `\` and `n` following each other.
 
   ```php
   <?php
@@ -113,30 +113,30 @@ theory: |
   print_r("Joffrey loves using \\n");
   ```
 
-  на экран выйдет:
+  on the screen, you'll see:
 
   <pre class='hexlet-basics-output'>
   Joffrey loves using \n
   </pre>
 
-  Небольшое, но важное замечание про Windows. В Windows для перевода строк по умолчанию используется `\r\n`. Такая комбинация хорошо работает только в Windows, но создает проблемы при переносе в другие системы (например, когда в команде разработчиков есть пользователи как Windows, так и Linux). Дело в том, что последовательность `\r\n` имеет разную трактовку в зависимости от выбранной кодировки (рассматривается позже). По этой причине в среде разработчиков принято всегда использовать `\n` без `\r`, так как LF всегда трактуется одинаково и отлично работает в любой системе. Не забудьте настроить ваш редактор на использование `\n`.
+  A small but important note about Windows. Windows uses `\r\n`. to do line feeds by default. This combination works well only in Windows, but creates problems when migrating to other systems (for example, when the development team has both Windows and Linux users). The point is that the sequence `\r\n` has a different interpretation depending on the chosen encoding (discussed later). For this reason, it's common among developers to always use `\n` without `\r`, since LF is always treated the same and works fine on any system. Remember to configure your editor to use `\n`.
 
 instructions: |
 
-  Напишите программу, которая выводит на экран:
+  Write a program that prints this to the screen:
 
       - Did Joffrey agree?
       - He did. He also said "I love using \n".
 
-  При этом программа использует только один `print_r()`, но результат на экране должен выглядеть в точности как показано выше.
+  This program uses only one `print_r()`, but the result on the screen should look exactly like the one shown above.
 
 definitions:
-  - name: Экранирующая последовательность
+  - name: An escape sequence
     description: |
-      специальная комбинация символов в тексте. Например, `\n` - это перевод строки.
+      is a special combination of characters in text. For example, `\n` means line feed..
 
 tips:
   - |
-    Обязательно поэкспериментируйте с выводом разных строк на сайте [https://repl.it/languages/php](https://repl.it/languages/php)
+    Be sure to experiment with the output of different lines on the site [https://repl.it/languages/php](https://repl.it/languages/php)
   - |
-    [История перевода строки](https://ru.wikipedia.org/wiki/Перевод_строки#История)
+    [History of Line Translation](https://en.wikipedia.org/wiki/Newline)
