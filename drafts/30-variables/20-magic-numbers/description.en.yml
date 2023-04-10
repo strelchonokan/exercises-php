@@ -1,9 +1,9 @@
 ---
 
-name: Магические числа
+name: Magic numbers
 theory: |
 
-  Вспомним один из прошлых уроков:
+  Let's remember one of the previous lessons:
 
   ```php
   <?php
@@ -15,11 +15,11 @@ theory: |
   print_r($rublesCount);
   ```
 
-  С точки зрения профессиональной разработки, такой код «пахнет». Так описывают код, который не соответствует так называемым лучшим практикам (best practices). И причина здесь вот в чём: уже сейчас, глядя на числа `60` и `1.25`, вы скорее всего задаетесь вопросом: «что это за числа?». А представьте, что будет через месяц! А как его поймет новый программист, не видевший код ранее? В нашем примере контекст восстанавливается благодаря грамотному именованию, но в реальной жизни код значительно сложнее, и поэтому догадаться до смысла чисел зачастую невозможно.
+  From the developer's point of view, such code "smells". This describes code that doesn't conform to so-called best practices. And here's the reason. If you're looking at the numbers `60` and `1.25`, you'll probably be wondering, "What are those numbers? Imagine reading a month from now! How could a new programmer who hasn't seen the code before understand it? In our example, the context is restored through proper naming, but real life code is much more complicated, and therefore it's often impossible to guess the meaning of the numbers.
 
-  Этот «запах» вызывают магические числа (magic numbers). Числа, происхождение которых невозможно понять без глубокого знания происходящего внутри данного участка кода.
+  This "smell" is caused by magic numbers. They're numbers that you can't explain the origin of, unless you dig deeper into the code.
 
-  Выход из ситуации прост: достаточно создать переменные с правильными именами, как всё встанет на свои места.
+  The way out is simple: just create variables with the right names and everything will be as they need to be.
 
   ```php
   <?php
@@ -34,15 +34,15 @@ theory: |
   print_r($rublesCount);
   ```
 
-  Обратите внимание на следующие детали:
+  Note the following details:
 
-  * Именование lowerCamelCase.
-  * Две новые переменные отделены от последующих вычислений пустой строчкой. Эти переменные имеют смысл и без вычислений, поэтому такое отделение уместно, оно повышает читаемость.
-  * Получился хорошо именованный и структурированный код, но он длиннее прошлой версии. Так часто бывает, и это нормально, потому что код должен быть читабельным.
+  * lowerCamelCase naming
+  * The two new variables are separated from the following computations by an empty string. These variables are meaningful even without any computation involved, which is why separating them here is good, it makes it easier to read.
+  * The code is well named and structured, but it's longer than the previous version. This is often the case, but it's fine, because the code needs to be readable.
 
 instructions: |
 
-  Вы столкнулись с таким кодом, который выводит на экран общее количество комнат во владении нынешнего короля:
+  You've come across this code, which prints the total number of rooms owned by the present king:
 
   ```php
   <?php
@@ -51,20 +51,20 @@ instructions: |
   print_r($king . ' has ' . (6 * 17) . ' rooms.');
   ```
 
-  Как видите, это магические числа: непонятно, что такое 6 и что такое 17. Можно догадаться, если знать историю королевской семьи: каждый новый король получает в наследство все замки от предков и строит новый замок — точную копию родительского.
+  As you can see, there are some magic numbers here: it's unclear what 6 is and what 17 is. If you know the history of the royal family, you can guess: each new king inherits all his ancestors' castles and builds a new one, an exact copy of his parents'.
 
-  Эта странная династия просто плодит одинаковые замки…
+  This strange dynasty simply breeds identical castles…
 
-  Избавьтесь от магических чисел, создав новые переменные, а затем выведите текст на экран.
+  Get rid of the magic numbers by creating new variables and then displaying the text on the screen.
 
-  Получится так:
+  You'll get this:
 
   <pre class='hexlet-basics-output'>
   King Balon the 6th has 102 rooms.
   </pre>
 
-  Названия переменных должны передавать смысл чисел, но при этом должны оставаться достаточно короткими и ёмкими для комфортного чтения.
+  Variable names should convey the meaning of numbers, but should remain short and succinct enough to be easily read.
 
-  Помните: код будет работать с любыми названиями, а наша система всегда проверяет только результат на экране, поэтому выполнение этого задания — под вашу ответственность.
+  Note: The code will work with any name, and we only check the printed result, so the task is up to you.
 
-tips: []
+# tips: []
