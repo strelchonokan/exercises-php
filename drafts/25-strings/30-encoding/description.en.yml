@@ -1,11 +1,11 @@
 ---
 
-name: Кодировка
+name: Encoding
 theory: |
 
-  На самом глубоком уровне компьютер оперирует исключительно цифрами `0` и `1`. Это так называемый [двоичный код](https://ru.wikipedia.org/wiki/Двоичный_код), а единички и нули называются битами, от "binary digit" — «двоичная цифра».
+  At the deepest level, the computer operates exclusively with the numbers `0` and `1`. This is called [binary code](https://en.wikipedia.org/wiki/Binary_code), the ones and zeros are called bits, which is derived from the term "binary digit".
 
-  Обычные, привычные нам числа в десятичной системе счисления, закодированы с помощью двоичных чисел:
+  The numbers that we usually use in the decimal system are encoded using binary numbers:
 
   - 0 ← 0
   - 1 ← 1
@@ -14,9 +14,9 @@ theory: |
   - 4 ← 100
   - 5 ← 101
 
-  Но как быть с текстом? Компьютер на самом деле не знает ничего о буквах, знаках пунктуации и прочих текстовых символах. Все эти символы также закодированы числами.
+  But does it deal with text? The computer isn't aware of letters, punctuation, or other text characters. All these characters are encoded by numbers too.
 
-  Можно взять английский алфавит и дать каждой букве число, начиная с единицы по порядку:
+  We can take the English alphabet and give each letter a number, starting with one:
 
   - a ← 1
   - b ← 2
@@ -25,28 +25,28 @@ theory: |
   - ...
   - z ← 26
 
-  В этом заключается суть **кодировок**.
+  This is the essence of **coding**.
 
-  Далее можно научить компьютер понимать эту таблицу и переводить текст в числа и наоборот — числа в текст:
+  Then you can teach the computer to understand this table and translate text into numbers and vice versa:
 
 
   - `hello` → `8` `5` `12` `12` `15`
   - `7` `15` `15` `4` → `good`
 
-  Подобные таблицы, в которых сопоставляются буквы и числа, называются кодировками. Кроме букв алфавита, в таблицы кодировок входят знаки препинания и другие полезные символы. Вы наверняка сталкивались с кодировками, например, [ASCII](https://ru.wikipedia.org/wiki/ASCII) или [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
+  These tables that match letters and numbers are called encodings. Besides letters of the alphabet, encodings include punctuation marks and other useful characters. You've probably encountered encodings such as [ASCII](https://en.wikipedia.org/wiki/ASCII) or [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
 
-  Разные кодировки содержат разное количество символов. Изначально небольших таблиц вроде ASCII было достаточно для большинства задач. Но в ней есть только латинские буквы, несколько простых символов вроде `%` и `?`, и специальные управляющие символы типа перевода строки.
+  Different encodings contain different numbers of characters. At first, small tables like ASCII were enough for programmers. But it has only Latin letters, a few simple characters like `%` and `?`, and special control characters like line feed.
 
-  С распространением компьютеров разным странам понадобились свои, более широкие таблицы. В том числе для кириллических букв, восточных иероглифов, арабской вязи, дополнительных математических и типографских символов, а впоследствии даже для эмодзи-смайликов.
+  As computers became more widespread, different countries needed their own, broader tables. This included Cyrillic letters, Chinese and Japanese characters, Arabic script, additional mathematical and typographic symbols, and later on emojis.
 
-  Сегодня в большинстве случаев используется один из вариантов [юникода](https://ru.wikipedia.org/wiki/Юникод) – *utf-8*. Он включает в себя знаки почти всех письменных языков мира. Благодаря этому письмо, сформированное человеком в Китае на китайском, без проблем можно открыть и увидеть в первозданном виде на компьютере в Финляндии (поймет он его или нет, это уже другой вопрос).
+  Today, in most cases, one of the [Unicode](https://en.wikipedia.org/wiki/Unicode) – *utf-8*. It includes characters from almost all the written languages found in the world. Thanks to this, a letter formed by a person in China in Chinese can easily be opened and seen in its original form on a computer in Finland (whether they'll understand it or not is another question).
 
-  С кодированием текста и кодировками программисты встречаются в своей жизни регулярно. Поддержка юникода у разных языков программирования выполнена на разном уровне. Кроме того, кодировки нужно явно указывать при работе и с базами данных, и с файлами.
+  Programmers have to deal with encodings regularly. Unicode support in different programming languages is carried out on a different level. Moreover, encodings must be declared when working with databases and files.
 
 
 instructions: |
 
-  В PHP можно «запросить» и вывести на экран любой символ из кодировки ASCII. Например:
+  In PHP you can "request" and display any ASCII character. For instance:
 
   ```php
   <?php
@@ -54,18 +54,18 @@ instructions: |
   print_r(chr(63));
   ```
 
-  На экран выведется символ с номером 63 — вопросительный знак `?`. Таким способом можно выводить любой символ.
+  Character 63 will be printed - a question mark `?`. You can print any character this way.
 
-  Воспользуйтесь [таблицей кодов ASCII](https://www.ascii-code.com). В этой таблице нас интересует десятичный код (*dec* или *decimal*), которыми кодируются символы.
+  Use [the ASCII code table](https://www.ascii-code.com). In this table, we're interested in the decimal code (*dec* или *decimal*), которыми кодируются символы.
 
-  Используя пример выше и найденную таблицу, выведите на экран `~^%`.
+  Using the example above and the table you found, display `~^%`.
 
-  (Конечно, можно «обмануть» тесты и просто сделать `print_r('~^%')`, но так будет совсем неинтересно :)
+  (Of course, you could "cheat" the tests and just write `print_r('~^%')`, but that would be no fun at all :)
 
 
 tips: []
 
 
 definitions:
-  - name: Кодировка
-    description: "набор символов, закодированных с помощью чисел для представления текста в электронном виде."
+  - name: Encoding
+    description: "a set of characters encoded with numbers to represent text electronically."
