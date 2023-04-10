@@ -1,9 +1,9 @@
 ---
 
-name: Что такое переменная
+name: What is a variable
 theory: |
 
-  Представьте себе задачу: нам нужно напечатать на экран фразу _Father!_ два раза или даже пять раз. Эту задачу можно решить в лоб:
+  Imagine we need to type the phrase _Father!_ twice or even five times on the screen. You can solve it via brute force:
 
   ```php
   <?php
@@ -12,30 +12,30 @@ theory: |
   print_r('Father!');
   ```
 
-  В простейшем случае так и стоит поступить, но если фраза _Father!_ начнет использоваться чаще, да ещё и в разных частях программы, то придётся её везде повторять. Проблемы с таким подходом начнутся тогда, когда понадобится изменить нашу фразу, а такое происходит довольно часто. Нам придётся найти все места, где использовалась фраза _Father!_ и выполнить необходимую замену. А можно поступить по-другому. Вместо копирования нашего выражения достаточно создать переменную с этой фразой.
+  In the simplest case, this is what you should do, but if the phrase _Father!_ starts to be used more and more often, and in different parts of the program, you'll have to repeat it everywhere. Then you'll face even more issues when it turns out that you need to change the phrase. This is a common scenario in development. We have to find all the places where the phrase _Father!_ was used and make the necessary substitutions. There is one other way to do it. Instead of copying our expression, just create a variable containing this phrase.
 
   ```php
   <?php
 
-  // greeting - переводится как приветствие
+  // greeting 
   $greeting = 'Father!';
   print_r($greeting);
   print_r("\n");
   print_r($greeting);
   ```
 
-  В строчке `$greeting = 'Father!'` - происходит присваивание значения `'Father!'` переменной с именем `$greeting`. В PHP имена переменных начинаются со знака *$*. В итоге переменная указывает на данные, которые были в неё записаны.
+  The line `$greeting = 'Father!'` assigns the value `'Father!'` to a variable named `$greeting`. In PHP, variable names begin with a *$* sign. As a result, the variable points to the data that was written to it.
 
-  Когда переменная создана, можно начать её использовать. Она подставляется в те места, где раньше стояла наша фраза. Во время выполнения интерпретатор (программа, которая выполняет код на PHP), доходит до строчки `print_r($greeting);` и подставляет вместо переменной её содержимое, а затем выполняет код. В результате вывод нашей программы будет таким:
+  Once the variable's been created, you can start using it. You put it in the places where we originally had our phrase written out in full. At runtime, the interpreter (the program that executes the PHP code), reaches the line `print_r($greeting);` and replaces the variable with its contents, and then executes the code. As a result, the output of our program will be as follows:
 
   <pre class='hexlet-basics-output'>
     Father!
     Father!
   </pre>
 
-  Для имени переменной используется любой набор допустимых символов, к которым относятся буквы английского алфавита, цифры, знак `_`. При этом цифру нельзя ставить в начале. Имена переменных регистрозависимы, то есть имя `hello` и имя `heLLo` - это два разных имени, а значит и две переменные. Регистр в PHP имеет важное значение, никогда не забывайте про него.
+  Any set of valid characters can be used for a variable name, which includes letters of the English alphabet, numbers, and the `_`. Note that you can't place a digit at the beginning of a name. Variable names are case-sensitive, which means that `hello` and `heLLo` are two different names and thus two distinct variables. Case is important in PHP, never forget it.
 
-  Количество создаваемых переменных никак не ограничено, большие программы содержат десятки и сотни тысяч имен переменных:
+  The number of variables you can create isn't limited in any way, large programs contain tens and hundreds of thousands of variable names:
 
   ```php
   <?php
@@ -49,14 +49,14 @@ theory: |
   print_r($greeting2);
   ```
 
-  Для удобства анализа программы переменные принято создавать как можно ближе к тому месту, где они используются.
+  For the convenience of program analysis, it's customary to create variables as close as possible to where they're used.
 
 instructions: |
 
-  Создайте переменную с именем `$motto` и содержимым `What Is Dead May Never Die!`. Распечатайте содержимое переменной.
+  Create a variable named `$motto` containing `What Is Dead May Never Die!`. Print its contents.
 
 tips: []
 
 definitions:
-  - name: Переменная
-    description: способ сохранить информацию и дать ей имя для последующего использования в коде.
+  - name: A variable
+    description: is a way to store information and name it for later use in code.
