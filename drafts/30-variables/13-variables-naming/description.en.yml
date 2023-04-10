@@ -1,10 +1,10 @@
 ---
 
-name: Выбор имени переменной
+name: Choosing a variable name
 theory: |
 
 
-  Представим себе, что программа из прошлого урока выглядит так:
+  Let's imagine that the program from the last lesson looks like this:
 
   ```php
   <?php
@@ -14,23 +14,23 @@ theory: |
   print_r($x);
   ```
 
-  Она по прежнему работает, но в ней изменилось имя переменной на `$x`. Компьютеру без разницы, как мы называем переменные — это просто бездушная машина, но вот программистам — нет. Мы гораздо чаще читаем код, чем пишем. Причём не свой, а написанный другими людьми. От качества и понятности имён переменных зависит половина успеха в анализе кода.
+  It still works, but it's changed the variable name to `$x`. The computer doesn't care what we call variables, it's just a soulless machine, but programmers do. We read code much more often than we write it. And not your own either, but rather code written by other people. The quality and clarity of variable names is half the battle in code analysis.
 
-  Лучше посидеть и придумать название, которое описывает суть, смысл переменной, чем назвать её как попало, а в будущем переделывать. Постарайтесь давать им такие имена, чтобы они были максимально понятны без контекста, без изучения окружающего кода.
+  It's better to sit around and come up with a name that describes the essence, the meaning of the variable, than to name it whatever you want, and then redo it in the future. Try to give them names so that they're as clear as possible without context, without needing to learn the surrounding code.
 
-  Среди разработчиков есть шутка: «самое сложное в программировании — названия переменных и инвалидация кеша». Придумывать названия и правда сложно. Как бы вы назвали переменную, в которой хранится _количество неоплаченных заказов от клиентов, имеющих задолженность в предыдущем квартале?_
+  There is a joke among developers: "The most difficult things in programming are naming variables and invalid cache". It's really hard to come up with names. What would you call the variable that stores _the number of unpaid orders from customers in arrears in the previous quarter?_
 
-  Самопроверка. Придумайте название для переменной, в которой будет храниться _«количество братьев и сестёр короля»_. Запишите его в блокноте или отправьте себе на почту. Не указывайте там ничего, кроме названия переменной. А через несколько уроков мы вернёмся к этой теме ;-)
+  Self-Check. Think of a name for the variable that will store the _«number of siblings of the king»_. Write it down in a notebook or email it to yourself. Don't put anything in there except the name of the variable. And in a few lessons we'll come back to this topic ;-)
 
 instructions: |
 
-  Создайте переменную, описывающую количество моих братьев, и присвойте ей значение *2*. Распечатайте содержимое переменной. Затем сравните своё имя с именем, которое используется в учительском решении.
+  Create a variable describing the number of my brothers and assign it the value *2*. Print its contents. Then compare your name with the name used in the teacher's solution.
 
 
 tips:
   - |
-    [Именование в программировании](https://ru.hexlet.io/blog/posts/naming-in-programming)
-  - |
-    [Ошибки в именовании переменных](https://ru.hexlet.io/blog/posts/naming-errors-1)
+    [Code Complete: Naming in Programming](https://hexlet.io/blog/posts/code-complete-naming-in-programming)
+#  - |
+#    [Ошибки в именовании переменных](https://ru.hexlet.io/blog/posts/naming-errors-1)
 
-definitions: []
+# definitions: []
