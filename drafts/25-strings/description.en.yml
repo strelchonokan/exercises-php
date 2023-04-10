@@ -1,6 +1,6 @@
 ---
 
-name: Строки
+name: Strings
 description:
-  Текст в программировании называется «строками», и эта тема не так проста, как может показаться. Как вывести фразу, в которой есть и одинарные, и двойные кавычки? Как вообще быть с текстом, ведь компьютер не знает ничего о буквах! Модуль посвящен разным аспектам написания текста – от кавычек и экранирования до кодировки.
+  Text in programming is called “strings”, and strings aren't as simple as they seem. How do I output a phrase that has both single and double quotes? How do you deal with text in general, since the computer knows nothing about letters! The module focuses on various aspects of writing, from quotation marks and escaping to encodings.
 
