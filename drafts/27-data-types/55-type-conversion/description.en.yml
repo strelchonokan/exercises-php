@@ -1,19 +1,19 @@
 ---
 
-name: Явное преобразование типов
+name: Explicit type conversion
 theory: |
 
-  Преобразование типов довольно частая операция в веб-разработке. С одной стороны, для её выполнения можно полагаться на слабую типизацию, с другой — во многих ситуациях лучше делать преобразование явно, используя специальный синтаксис. Такой код понятнее и предсказуемее.
+  Type conversion is a fairly common operation in web development. On the one hand, you can rely on weak typing to perform it, on the other hand, in many situations it's better to do the conversion explicitly, using special syntax. This code is clearer and more predictable.
 
   ```php
   <?php
 
-  // Примеры немного искусственные. В реальности этот механизм становится полезен при использовании переменных
+  // These examples are a bit artificial. In reality, this mechanism is much more useful when using variables
   print_r((string) 5);
   print_r((int) '345');
   ```
 
-  Явное преобразование типа работает так: перед значением, в скобках, указывается желаемый тип. В результате значение справа преобразуется в значение другого типа, указанного слева в скобках. На текущий момент мы знакомы только с двумя типами, но преобразование работает для любого типа. Например, при преобразовании дробного числа в целое, число будет округлено в меньшую сторону
+  Explicit type conversion works like this: the desired type is specified before the value, in parentheses. As a result, the value on the right is converted to a value of the other type specified on the left in brackets. We're currently only familiar with two types, but the conversion works for any type. For example, when converting a fractional number to a whole number, the number will be rounded down
 
   ```php
   <?php
@@ -21,12 +21,12 @@ theory: |
   print_r((int) 5.73); // => 5
   ```
 
-  Преобразование типов можно использовать внутри составных выражений:
+  Type conversion can be used within compound expressions:
 
   ```php
   <?php
 
-  // Дополнительные скобки помогают визуально отделить части выражения друг от друга
+  // Additional brackets help to visually separate parts of an expression from each other
   print_r('Это ' . ((string) 5));
   ```
 
@@ -34,7 +34,7 @@ theory: |
     Это 5
   </pre>
 
-  В более сложных ситуациях (при использовании функций, которые проходятся позже) встречаются множественные преобразования: `(string) (5 + ((int) '4'))`. Порядок вычисления этого выражения следующий:
+  In more complex situations (when using functions that are passed later) multiple conversions are encountered: `(string) (5 + ((int) '4'))`. The procedure for calculating this expression is as follows:
 
   ```php
   <?php
@@ -46,8 +46,8 @@ theory: |
 
 instructions: |
 
-  Выведите на экран строку `2 times`, полученную из числа 2.9 и строки `times`, используя преобразования типов и конкатенацию. Для этого нужно выполнить два преобразования: сначала в целое число, а затем в строку
+  Output the string 2 times from the number 2.9 and the string `times` using type conversion and concatenation. This requires two conversions: first, to an integer and then to a string
 
-definitions: []
+# definitions: []
 
-tips: []
+# tips: []
