@@ -3,44 +3,44 @@
 name: Сигнатура функции
 theory: |
 
-  Функция `pow()`, возводящая число в какую-нибудь степень, принимает два параметра: **какое число возводить** и **в какую степень возводить**. Если вызывать `pow()` без параметров, то PHP выдаст следующее: `PHP Warning:  pow() expects exactly 2 parameters, 0 given in php shell code on line 1`. Интерпретатор сообщает, что функция ожидает 2 параметра, а вы вызвали её без параметров.
+  The `pow()`, function, which raises a number to any power, takes two parameters: **which number to raise** and **to what power to raise it to**. If you call `pow()` without parameters, PHP outputs the following: `PHP Warning:  pow() expects exactly 2 parameters, 0 given in php shell code on line 1`. The interpreter has told you that the function expects 2 parameters, and that you called it without parameters.
 
-  Тот, кто создавал функцию `pow()`, сделал её функцией с двумя обязательными параметрами, поэтому её невозможно вызвать с другим количеством параметров.
+  Whoever created the `pow()`, function made it a function with two mandatory parameters, so it can't be called with any other number of parameters.
 
-  Более того, параметрами `pow()` могут быть только числа. Попытка передать в неё, например, строку приведет к следующей ошибке: `PHP Warning:  A non-numeric value encountered in php shell code on line 1`. Результат вызова этой функции — тоже всегда число.
+  Moreover, the parameters of `pow()` can only be numbers. Attempting to pass, for example, a string to it will result in the following error: `PHP Warning:  A non-numeric value encountered in php shell code on line 1`. The result of this function call will also always be a number.
 
-  Другая функция может иметь иное число параметров и другие типы параметров. Например, может существовать функция, которая принимает три параметра: число, строку и ещё одно число.
+  Other functions may have different numbers of parameters and different types of parameters. For example, there may be a function that takes three parameters: a number, a string, and another number.
 
-  Откуда мы знаем, сколько каких параметров нужно функции `pow` и какого типа будет «возврат»? Мы заглянули в **сигнатуру** этой функции. Сигнатура определяет входные параметры и их типы, а также выходной параметр и его тип. Про функцию `pow` можно почитать в [официальной документации PHP](https://php.net/manual/ru/function.pow.php). В разделе «описание» там есть такой текст:
+  How do we know how many parameters the `pow` function needs and what sort of result it'll return? We've taken a look at this function's **signature**. The signature defines the input parameters and their types, as well as the output parameter and its type. You can read about the `pow` function in [the official PHP documentation](https://www.php.net/manual/en/function.pow.php). In the "description" section, you can see this this text:
 
   ```
   pow ( number $base , number $exp ) : number
 
-  Возвращает base, возведенное в степень exp.
+  Returns base raised to the power of exp.
   ```
 
-  Это сигнатура функции и короткое пояснение на русском языке.
+  This is a function signature and a short explanation.
 
-  Информация расшифровывается так:
-  - функция называется `pow`
-  - функция принимает два параметра: число (base) и число (exp)
-  - функция возвращает число (number)
-  - функция возвращает base, возведенное в степень exp
+  The information is deciphered as follows:
+  - the function is called `pow`
+  - the function takes two parameters: a number (base) and a number (exp)
+  - the function returns a number (number)
+  - the function returns base raised to the power of exp
 
-  Параметры можно передавать только в той последовательности, в которой они определены в сигнатуре.
+  Parameters can only be passed in the order they're given in the signature.
 
-  Любая функция возвращает всегда только одно значение. Это ограничение существует на уровне языка и не может быть нарушено.
+  Any function will always return only one value. This restriction exists at language level and cannot be broken.
 
 instructions: |
 
-  Теперь ваша очередь посмотреть на сигнатуру функции в документации и разобраться, как её использовать. Можете читать документацию на русском языке, но программист обязан уметь читать документацию на английском. Используйте словари или переводчики при необходимости. Лучше сразу привыкать и подтягивать навыки чтения на английском, иначе будут сложности в будущем.
+  Now it's your turn, look at the signature of a function in the documentation and work out how to use it. Now it's your turn to find the function signature in the documentation and figure out how to use it.
 
-  В PHP есть функция `ucfirst()`. Изучите её сигнатуру на странице [https://php.net/manual/ru/function.ucfirst.php](https://php.net/manual/ru/function.ucfirst.php).
+  In PHP, there's a function called `ucfirst()`. Study its signature at[https://www.php.net/manual/en/function.ucfirst.php](https://www.php.net/manual/en/function.ucfirst.php).
 
-  Напишите программу, которая использует функцию `ucfirst()` с переменной `$text` и выводит результат на экран. Значение переменной `$text` уже определено.
+  Write a program that uses `ucfirst()` with the variable `$text` and displays the result. The value of the `$text` variable is already defined.
 
-tips: []
+# tips: []
 
 definitions:
-  - name: Сигнатура функции
-    description: формальное описание типов аргументов и типа возвращаемого значения функции.
+  - name: A function signature 
+    description: is a formal description of the types of arguments and the type of return value of a function.
