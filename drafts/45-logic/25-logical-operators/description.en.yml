@@ -1,15 +1,15 @@
 ---
 
-name: Логические операторы
+name: Logical Operators
 theory: |
 
-  Логические выражения могут объединяться друг с другом, создавая всё более хитрые проверки. Хороший пример: проверка пароля. Как вы знаете, некоторые сайты при регистрации хотят пароль от 8 до 20 символов в длину. Честно говоря, это странное ограничение, но что поделать. В математике мы бы написали `8 < x < 20` (где `x` это длина конкретного пароля), но в PHP такой трюк не пройдет. Нам придётся сделать два отдельных логических выражения и соединить их специальным оператором «И»:
+  Logical expressions can be combined with each other, creating increasingly tricky checks. One good example is password verification. As you'll likely know, many websites want a password of 8 до 20 characters on signup. Frankly, it's a weird restriction, but whatever, it is what it is. In mathematics, we'd write `8 < x < 20` (where `x` is the length of a particular password), but in PHP, this won't work. We would have to make two separate logical expressions and connect them with the special «AND» operator:
 
   ```
-  Пароль длиннее 8 символов **И** пароль короче 20 символов.
+  A password longer than 8 characters **AND** a password shorter than 20 characters.
   ```
 
-  Вот функция, которая принимает пароль и говорит, соответствует ли он условиям, или не соответствует:
+  Here's a function that takes a password and says whether it meets the conditions or not:
 
   ```php
   <?php
@@ -25,29 +25,29 @@ theory: |
   isCorrectPassword('zxcvbnmasdfghjkqwertyui'); // false
   ```
 
-  `&&` - означает «И» (в математической логике это называют конъюнкцией). Всё выражение считается истинным только в том случае, когда истинен каждый операнд — каждое из составных выражений. Иными словами, `&&` означает «и то, и другое». Приоритет этого оператора ниже, чем приоритет операторов сравнения, поэтому выражение отрабатывает правильно без скобок. Кроме `&&`, часто используется оператор `||` — «ИЛИ» (дизъюнкция). Он означает «или то, или другое, или оба». Операторы можно комбинировать в любом количестве и любой последовательности, но когда одновременно встречаются `&&` и `||`, то приоритет лучше задавать скобками.
+  `&&` means «AND» (called 'conjunction' in mathematical logic). The whole expression is true only when every operand, all of which are part of the compound expression, is true. In other words, `&&` means «both». This operator's priority is lower than that of comparison operators, so the expression works correctly without parentheses. Another widespread operator alongside `&&` is `||` — «OR» (disjunction). It means "one or the other, or both". Operators can be combined in any number and any sequence, but when `&&` and `||`, appear together, you should label priority with parentheses.
 
-  Ниже пример расширенной функции определения корректности пароля:
+  Below is an example of an advanced function that validates a password:
 
   ```php
   <?php
 
   function hasSpecialChars($str)
   {
-      // проверяет содержание специальных символов в строке
+      // checks to see if there are special characters in the string
   }
 
   function isStrongPassword($password)
   {
       $length = strlen($password);
-      // Скобки задают приоритет. Понятно что к чему относится.
+      // The parentheses set the priority, making it clear how each part is related
       return ($length > 8 && $length < 20) && hasSpecialChars($password);
   }
   ```
 
-  Другой пример. Мы хотим купить квартиру, которая удовлетворяет условиям: площадь от 100 кв. метров и больше на любой улице **ИЛИ** площадь от 80 кв. метров и больше, но на центральной улице `Main Street`.
+  Another example. We want to buy an apartment that meets these conditions: an area of 100 square meters or more on any street OR an area of 80 square meters or more, but on `Main Street`.
 
-  Напишем функцию, проверяющую квартиру. Она принимает два аргумента: площадь (число) и название улицы (строку):
+  We'll write a function that checks the apartment. It takes two arguments, the area (a number) and the street name (a string):
 
   ```php
   <?php
@@ -66,7 +66,7 @@ theory: |
   var_dump(isGoodApartment(80, 'Main Street'));    // => true
   ```
 
-  Область математики, в которой изучаются логические операторы, называется булевой алгеброй. Ниже показаны «таблицы истинности» — по ним можно определить, каким будет результат применения оператора:
+  The area of mathematics dealing with logical operators is called Boolean algebra. The truth tables are shown below, and they can be used to figure out the result of an operator:
 
   ## И `&&`
 
@@ -77,7 +77,7 @@ theory: |
   | FALSE | TRUE  | FALSE    |
   | FALSE | FALSE | FALSE    |
 
-  Пара примеров:
+  A couple of examples:
 
   ```php
   <?php
@@ -89,7 +89,7 @@ theory: |
   'start' === 'start' && 8 < 3; // false
   ```
 
-  ## ИЛИ `||`
+  ## OR `||`
 
   | A     | B     | A `‖` B  |
   | ----- | ----- | -------- |
@@ -98,7 +98,7 @@ theory: |
   | FALSE | TRUE  | **TRUE** |
   | FALSE | FALSE | FALSE    |
 
-  Пара примеров:
+  A couple of examples:
 
   ```php
   <?php
@@ -112,7 +112,7 @@ theory: |
 
 instructions: |
 
-  Реализуйте функцию `isLeapYear()`, которая определяет, является ли год високосным или нет. Год будет високосным, если он кратен (то есть делится без остатка) 400 или он одновременно кратен 4 и не кратен 100. Как видите, в определении уже заложена вся необходимая логика, осталось только переложить её на код:
+  Implement the `isLeapYear()` function, which determines whether the year is leap year or not. A leap year is a multiple of 400 (i.e. divisible without a remainder), or is both a multiple of 4 and not a multiple of 100.  As you can see, the definition already contains all the required logic, all we need to do is to put it into code:
 
   ```php
   <?php
@@ -122,26 +122,26 @@ instructions: |
   isLeapYear(2016); // true
   ```
 
-  Кратность можно проверять так:
+  You can check if a number is a factor of another number like so:
 
   ```php
   <?php
 
-  // % - возвращает остаток от деления левого операнда на правый
-  // Проверяем что number кратен 10
+  // % - returns the remainder of the left operand divided by the right operand
+  // Checking that the number is a multiple of 10
   $number % 10 === 0
-  // Проверяем что number не кратен 10
+  // Checking that the number is not a multiple of 10
   $number % 10 !== 0
   ```
 
 tips:
   - |
-    [Булева алгебра](https://ru.wikipedia.org/wiki/Булева_алгебра)
+    [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra_(structure))
   - |
-    [Конъюнкция](https://ru.wikipedia.org/wiki/Конъюнкция)
+    [Conjunction](https://en.wikipedia.org/wiki/Logical_conjunction)
   - |
-    [Дизъюнкция](https://ru.wikipedia.org/wiki/Дизъюнкция)
+    [Disjunction](https://en.wikipedia.org/wiki/Logical_disjunction)
 
 definitions:
-  - name: "Логические операторы"
-    description: "операторы «И» (&&), ИЛИ (||), позволяющие создавать составные логические условия."
+  - name: "Logical operators"
+    description: "the «AND» (&&), OR (||), operators, which allow you to create composite logical conditions."
