@@ -1,9 +1,9 @@
 ---
 
-name: Аргументы по умолчанию
+name: Default Arguments
 theory: |
 
-  Рассмотрим функцию `round()`. Она округляет переданное число:
+  Let's look at the `round()` function. It rounds up the number passed to it:
 
   ```php
   <?php
@@ -11,9 +11,9 @@ theory: |
   $result = round(10.25, 0); // 10
   ```
 
-  Мы передали в неё два аргумента: число и точность округления. `0` означает, что округление будет до целого значения.
+  We passed two arguments to it: the number and the rounding accuracy. `0` means that the rounding will be to an integer value.
 
-  Чаще всего нужно округлять именно до целого числа (а не до десятых, например), поэтому создатели функции `round` сделали второй аргумент **необязательным** и задали ему внутри функции **значение по умолчанию `0`**. Значит, можно не указывать второй аргумент, а результат будет тем же:
+  We usually need to round to a whole number (and not to 1 decimal point, for example), so the creators of the `round` function made the second argument **optional** and set the **default value within the function to `0`**. So you can leave out the second argument and the result will be the same:
 
   ```php
   <?php
@@ -21,7 +21,7 @@ theory: |
   $result = round(10.25); // 10
   ```
 
-  А если нужна другая точность, то можно передать аргумент:
+  And if you need to round it to a number of decimal places, then you can pass the required argument as well:
 
   ```php
   <?php
@@ -29,14 +29,14 @@ theory: |
   $result = round(10.25, 1); // 10.3
   ```
 
-  Если функция в PHP принимает необязательные аргументы, то они всегда стоят после обязательных. Их количество может быть любым (это зависит от самой функции), но они всегда идут рядом и в конце списка аргументов.
+  If a function in PHP takes optional arguments, they'll alway come after the required ones. Their number varies depending on the function itself, but they always go one after another and at the end of the list of arguments.
 
 instructions: |
 
-  Округлите число, записанное в переменную `$number`, до двух знаков после запятой и выведите результат на экран.
+  Round up the number written in the $number variable to two decimal places and display the result on the screen.
 
-tips: []
+# tips: []
 
 definitions:
-  - name: Аргумент по умолчанию
-    description: необязательный аргумент функции.
+  - name: The default argument
+    description: is an optional function argument.
