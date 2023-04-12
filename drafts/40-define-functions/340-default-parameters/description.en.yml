@@ -1,27 +1,27 @@
 ---
 
-name: Необязательные параметры функций
+name: Optional Function Parameters
 theory: |
 
-  В программировании большое количество функций и методов имеют параметры, которые редко меняются. В таких случаях этим параметрам задают значения по умолчанию, которые можно поменять по необходимости. Этим немного сокращается количество одинакового кода. Пример:
+  In programming, many functions and methods have parameters that rarely change. In such cases, these parameters are given default values that can be changed as needed. This reduces the number of duplicated code. An example:
 
   ```php
   <?php
 
-  // Функция возведения в степень
-  // Второй параметр имеет значение по умолчанию 2
+  // Exponentiation function.
+  // The second parameter is 2 by default
   function myPow($x, $base = 2)
   {
       return $x ** $base;
   }
 
-  // 3 во второй степени (двойка задана по умолчанию)
+  // 3 to the power of 2 (2 is the default setting)
   myPow(3); // 3 * 3 = 9
-  // три в третьей степени
+  // 3 to the power of 3
   myPow(3, 3); // 3 * 3 * 3 = 27
   ```
 
-  Значение по умолчанию выглядит как обычное присваивание в определении. Оно срабатывает только в том случае, если параметр не передан. К этому нужно привыкнуть. Значение по умолчанию может быть даже в том случае, когда параметр один:
+  The default value looks like a normal assignment within the definition. It only works if the parameter isn't passed. This is something you should get used to. There can even be a default value when there's only one parameter:
 
   ```php
   <?php
@@ -35,7 +35,7 @@ theory: |
   myPrint("Hexlet"); // => "Hexlet"
   ```
 
-  Параметров со значениями по умолчанию может быть сколько угодно:
+  There can be any number of default parameters:
 
   ```php
   <?php
@@ -46,30 +46,30 @@ theory: |
   }
   ```
 
-  У значений по умолчанию есть одно ограничение. Они должны идти в самом конце списка параметров. То есть, с точки зрения синтаксиса, невозможно создать функцию, у которой после необязательного параметра идет обязательный:
+  Default values have one limitation. They need to be at the very end of the parameter list. From a syntax perspective, it's impossible to create a function that will have a mandatory parameter after an optional one:
 
   ```php
   <?php
 
-  // Такой код завершится с ошибкой
+  // This code will terminate with an error
   function f($a = 5, $b = 10, $c = 100, $x)
   {
     ...
   }
 
-  // И такой
+  // This too
   function f($a = 5, $b = 10, $x, $c = 100)
   {
     ...
   }
 
-  // А вот такой сработает
+  // But this one will work.
   function f($x, $a = 5, $b = 10, $c = 100)
   {
     ...
   }
 
-  // И такой
+  // This too
   function f($x, $y, $a = 5, $b = 10, $c = 100)
   {
     ...
@@ -78,19 +78,19 @@ theory: |
 
 instructions: |
 
-  Реализуйте функцию `getHiddenCard()`, который принимает на вход номер кредитки (состоящий из 16 цифр) в виде строки и возвращает его скрытую версию, которая может использоваться на сайте для отображения. Если исходная карта имела номер *2034399002125581*,  то скрытая версия выглядит так *\*\*\*\*5581*. Другими словами, функция заменяет первые 12 символов, на звездочки. Количество звездочек регулируется вторым необязательным параметром. Значение по умолчанию — 4.
+  Write a function, `getHiddenCard()`, which takes a credit card number (consisting of 16 digits) as a string and returns a hidden version of it, which can be displayed on the website. If the original card had the number *2034399002125581*,  the hidden version will look like this: *\*\*\*\*5581*. In other words, the function replaces the first 12 digits with asterisks. The number of asterisks is specified by a second optional parameter.  The default value is 4.
 
   ```php
   <?php
 
-  // Кредитка передается внутрь как строка
+  // The credit card number is passed as a string
   getHiddenCard("1234567812345678", 2); // "**5678"
   getHiddenCard("1234567812345678", 3); // "***5678"
   getHiddenCard('1234567812345678'); // "****5678"
   getHiddenCard('2034399002121100', 1); // "*1100"
   ```
 
-  Для выполнения задания вам понадобится функция [str_repeat()](https://www.php.net/manual/ru/function.str-repeat.php), которая повторяет строку указанное количество раз
+  To do this task, you need the [str_repeat()](https://www.php.net/manual/en/function.str-repeat.php), function, which repeats the string a specified number of times
 
   ```php
   <?php
