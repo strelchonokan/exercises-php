@@ -1,9 +1,9 @@
 ---
 
-name: Возврат значений
+name: Return values
 theory: |
 
-  Функции, которые мы определяли в предыдущих уроках, заканчивали свою работу тем, что печатали на экран какие-то данные:
+  The functions we defined in the previous lessons ended up printing some data on the screen:
 
   ```php
   <?php
@@ -14,14 +14,14 @@ theory: |
   }
   ```
 
-  Пользы от таких функций не очень много, так как результатом их работы невозможно воспользоваться внутри программы. Рассмотрим это на примере.
+  These functions aren't super useful since the results can't be used inside the program. Let's look at an example.
 
-  Возьмем задачу обработки электронной почты. Когда пользователь регистрируется на каком-то сайте, то он может ввести email любым способом:
+  Let's say we're processing an email address. When a user registers on any site, they can enter an email in any way they want:
 
-  * Добавив случайно пробелы в начале или в конце `_support@hexlet.io__`
-  * Использовав буквы в разном регистре `SUPPORT@hexlet.io`
+  * They might accidentally add spaces at the beginning or end `_support@hexlet.io__`
+  * Or use letters in different cases `SUPPORT@hexlet.io`
 
-  Если мы сохраним его в таком виде в базу данных, то пользователь, скорее всего, не сможет войти на сайт, так как будет вбивать адрес без пробелов и используя другой регистр символов. Чтобы этого не произошло, email нужно подготовить к записи в базу, привести его к нижнему регистру и обрезать пробельные символы по краям строки. Вся задача решается в пару строчек:
+  If we save it to the database in this way, the user most likely won't be able to log into the site because they'll enter the address without spaces and with a different character case. To avoid this, the email should be prepared to be written to the database, it should be brought to lower case, and the spaces should be trimmed from either side of the string.. The whole problem can be solved in a couple of lines:
 
   ```php
   <?php
@@ -29,25 +29,25 @@ theory: |
   function saveEmail()
   {
       $email = "  SuppORT@hexlet.IO";
-      // обрезаем пробельные символы
+      // trimming whitespace characters
       $trimmedEmail = trim($email);
       $preparedEmail = strtolower($trimmedEmail);
       print_r($preparedEmail);
-      // здесь будет запись в базу данных
+      // the database entry goes here
   }
   ```
 
-  Этот код стал возможен только благодаря возврату значения. Функции `trim()` и `strtolower()` ничего не печатают на экран (в консоль), они **возвращают** результат своей работы и поэтому мы можем записать его в переменные. Если бы они вместо этого печатали на экран, мы бы не могли присвоить результат их работы переменной. Как мы не можем сделать с определенной выше функцией `greeting()`:
+  This code was made possible only by us returning a value The `trim()` and `strtolower()` functions don't print anything to the screen (in the console), they return the result of their work, so we can write it into variables. If they printed to the screen instead, we wouldn't be able to assign the result of their work to a variable. Which we can't do with the `greeting()` function defined above:
 
   ```php
   <?php
 
   $message = greeting();
-  // Чтобы увидеть null, нужно воспользоваться функцией var_dump()
+  // To see null, use var_dump()
   var_dump($message); // => NULL
   ```
 
-  Изменим функцию `greeting()` таким образом, чтобы она начала возвращать данные, вместо их печати. Для этого нам понадобится выполнить возврат вместо печати на экран
+  Let's change the `greeting()` function so that it starts returning data instead of printing it. To do this, we need to return instead of printing to the screen
 
   ```
   <?php
@@ -58,19 +58,19 @@ theory: |
   }
   ```
 
-  `return` – особая инструкция, которая берет выражение записанное справа и отдает его наружу, тому коду, который вызвал метод. Как только PHP натыкается на `return`, выполнение функции на этом завершается.
+  `return` is a special instruction that takes the expression written on the right and passes it outside to the code that called the method. As soon as PHP encounters `return`, the function is terminated.
 
   ```php
   <?php
 
-  // Теперь мы можем использовать результат работы функции
+  // Now we can use the result of the function
   $message = greeting();
   print_r($message); // => 'Hello, Hexlet!'
-  // И даже выполнить какие-то действия над результатом
+  // And even perform some actions on the result
   print_r(strtoupper($message)); // => 'HELLO, HEXLET!'
   ```
 
-  Любой код после `return` не выполняется:
+  Any code after return isn't executed:
 
   ```php
   <?php
@@ -78,25 +78,25 @@ theory: |
   function greeting()
   {
       return 'Hello, Hexlet!';
-      print_r('Я никогда не выполнюсь');
+      print_r('I will never be executed');
   }
   ```
 
-  Даже если функция возвращает данные, это не ограничивает её в том, что она печатает. Кроме возврата данных мы можем и печатать:
+  Even if the function returns data, this doesn't limit what it prints. In addition to returning data, we can also print:
 
   ```php
   <?php
 
   function greeting()
   {
-      print_r('Я появлюсь в консоли');
+      print_r('I will appear in the console');
       return 'Hello, Hexlet!';
   }
-  // И напечатает текст на экран и вернет значение
+  // And it prints the text on the screen and return the value
   $message = greeting();
   ```
 
-  Возвращать можно не только конкретное значение. Так как `return` работает с выражениями, то справа от него может появиться почти все что угодно. Здесь нужно руководствоваться принципами читаемости кода:
+  You can print more than just a specific value. Since `return` works with expressions, almost anything can appear to the right of it. Here we should stick to the principles of code readability:
 
   ```php
   <?php
@@ -108,44 +108,44 @@ theory: |
   }
   ```
 
-  Здесь мы не возвращаем переменную, возвращается всегда значение, которое находится в этой переменной. Ниже пример с вычислениями:
+  Here we don't return a variable, we always return the value that's in that variable. Below is an example with calculations:
 
   ```php
   <?php
 
   function doubleFive()
   {
-      // или return 5 + 5
+      // or return 5 + 5
       $result = 5 + 5;
       return $result;
   }
   ```
 
-  Вопрос на самопроверку. Что выведет этот код?
+  Self-check. What will this code print?
 
   ```php
   <?php
 
-  // Определение
+  // Definition
   function run()
   {
-      // или return 5 + 5
+      // or return 5 + 5
       return 5;
       return 10;
   }
 
-  // Использование
+  // Usage
   run(); // => ?
   ```
 
 instructions: |
 
-    Реализуйте функцию `sayHurrayThreeTimes()`, которая возвращает строку 'hurray! hurray! hurray!'.
+    Implement a function caleed `sayHurrayThreeTimes()`, which returns the string 'hurray! hurray! hurray!'.
 
     ```php
     $hurray = sayHurrayThreeTimes();
     print_r($hurray); // => 'hurray! hurray! hurray!'
 
-    Вам не нужно вызывать свою функцию, только определить её.
+    You don't need to call your function, just define it.
 
-tips: []
+# tips: []
