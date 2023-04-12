@@ -1,9 +1,9 @@
 ---
 
-name: Интерполяция
+name: Interpolation
 theory: |
 
-  В уроке про конкатенацию перед нами стояла задача создать заголовок письма из двух переменных и знаков препинания. Вы скорее всего решили задачу так:
+  In the lesson on concatenation, we had the task of creating a letter header out of two variables and punctuation marks. You most likely did it this way:
 
   ```php
   <?php
@@ -14,9 +14,9 @@ theory: |
   print_r($greeting . ", " . $firstName . "!");
   ```
 
-  Это довольно простой случай, но — наверное, вы согласитесь — выглядит это немного безобразно. Нужно следить за несколькими кавычками и пробелами, и без вглядывания не понять, где что начинается и кончается.
+  It's a pretty simple case, but, and you'll probably agree, it looks a little unseemly. You have to watch out for several quotation marks and spaces, and you can't tell where something starts and ends without paying attention.
 
-  Есть другой, более удобный и изящный способ решения той же задачи — **интерполяция**. Вот как это выглядит:
+  There is a more convenient and elegant way to solve the same problem: interpolation. This is what it looks like:
 
   ```php
   $firstName = 'Joffrey';
@@ -27,17 +27,17 @@ theory: |
 
   https://replit.com/@hexlet/php-basics-interpolation
 
-  Мы просто создали одну строку и «вставили» в неё в нужные места переменные с помощью фигурных скобок (`{}`). Получился как будто бланк, куда внесены нужные значения. И нам не нужно больше заботиться об отдельных строках для знаков препинания и пробелов — все эти символы просто записаны в этой строке-шаблоне.
+  We just created one line and inserted variables into it in the right places using curly brackets (`{}`). It's like we have a blank form where we can enter the desired values. And we no longer have to worry about separate strings for punctuation marks and spaces, all of these characters already exist in our template string.
 
-  В одной строке можно делать сколько угодно блоков с фигурными скобками.
+  You can make as many bracketed blocks as you want on one line.
 
-  **Интерполяция работает только со строками в двойных кавычках.**
+  **Interpolation only works with double-quoted strings.**
 
-  Почти во всех языках интерполяция предпочтительнее конкатенации для объединения строк. Строка при этом получается склеенная, и внутри неё хорошо просматриваются пробелы и другие символы.
+  Nearly all languages favor interpolation over concatenation for combining strings. It glues a string together, and spaces and other characters look good in it.
 
 instructions: |
 
-  Выведите на экран строку `Do you want to eat, <name>?`. Где вместо `<name>` должна использоваться переменная `$stark`. Вывод должен получиться таким:
+  Display the line Do you want to eat, <name>?`. And the variable `$stark` should be used instead of  `<name>`. The output should look like this:
 
   <pre class='hexlet-basics-output'>
   Do you want to eat, Arya?
@@ -46,5 +46,5 @@ instructions: |
 tips: []
 
 definitions:
-  - name: Интерполяция
-    description: способ соединения строк через вставку значений переменных в строку-шаблон с помощью фигурных скобок. Например, `\"Hi, {$name}!\"`.
+  - name: Interpolation
+    description: is a way to join strings by inserting variable values into a string template using curly brackets. For example, `\"Hi, {$name}!\"`.
