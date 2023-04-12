@@ -1,11 +1,11 @@
 ---
 
-name: Отрицание
+name: Negation
 theory: |
 
-  Наряду с конъюнкцией (И) и дизъюнкцией (ИЛИ), часто используется операция «отрицание». Отрицание меняет логическое значение на противоположное. В программировании ему соответствует унарный оператор `!`.
+  Alongside the conjunction (AND) and disjunction (OR) operators, we often use the negation operator, too. It changes the logical value to the opposite one. It's denoted by the unary operator `!` in programming.
 
-  Если есть функция, проверяющая чётность числа, то с помощью отрицания можно выполнить проверку нечётности:
+  If there's a function that checks for even numbers, then negation will allow you to check for odd numbers:
 
   ```php
   <?php
@@ -19,9 +19,9 @@ theory: |
   !isEven(10); // false
   ```
 
-  То есть мы просто добавили `!` слева от вызова функции и получили обратное действие. Отрицание — мощный инструмент, который позволяет лаконично выражать задуманные правила в коде без необходимости писать новые функции.
+  I.e., we can just put a `!` to the left of the function call and get the opposite result. Negation is a powerful tool that allows you to concisely express the desired rules in your code without having to write new functions.
 
-  А что если написать так `!!isEven(10)`? Внезапно, но код сработает. В логике двойное отрицание подобно отсутствию отрицания вообще.
+  What if you write it like this `!!isEven(10)`? Suddenly, the code will work. Double negation in logic is equivalent to no negation at all.
 
   ```php
   <?php
@@ -33,9 +33,9 @@ theory: |
 
 instructions: |
   
-  В этом уроке вам нужно будет реализовать две функции `isPalindrome()` и `isNotPalindrome()`
+  In this lesson, you'll need to implement the two functions `isPalindrome()` and `isNotPalindrome()`
 
-  1. Функция `isPalindrome()` определяет, является ли слово палиндромом или нет. Палиндром это слово, которое читается одинаково в обоих направлениях.
+  1. The `isPalindrome()` function determines whether a word is a palindrome or not. A palindrome is a word that reads the same backwards as it does forwards.
 
       ```php
       <?php
@@ -44,14 +44,14 @@ instructions: |
       isPalindrome('mom'); // true
       isPalindrome('hexlet'); // false
 
-      // Слова в функцию могут быть переданы в любом регистре
-      // Поэтому сначала нужно привести слово в нижний регистр strtolower()
+      // You can pass upper and lower-case letters to the function
+      // Therefore, you must first convert the word to lowercase strtolower()
       isPalindrome('Wow'); // true
       ```
 
-      Для того чтобы развернуть слово задом наперёд используйте функцию `strrev()`.
+      To flip a word, use the `strrev()` function.
 
-  2. Функция `isNotPalindrome()` проверяет что слово НЕ является палиндромом:
+  2. The `isNotPalindrome()` function checks that the word is NOT a palindrome:
 
       ```php
       <?php
@@ -61,8 +61,8 @@ instructions: |
       isNotPalindrome('hexlet'); // true
       ```
 
-      Для этого, вызовите функцию `isPalindrome()` внутри `isNotPalindrome()` и примените отрицание.
+      All you need is to negate the `isPalindrome()` function call within the `isNotPalindrome()` function's body.
 
 tips:
   - |
-    [Законы Де Моргана](https://ru.wikipedia.org/wiki/Законы_де_Моргана)
+    [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws)
