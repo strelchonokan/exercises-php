@@ -1,73 +1,73 @@
 ---
 
-name: Параметры функций
+name: Function Parameters
 theory: |
 
-  Функции могут не только возвращать значения, но и принимать их в виде параметров. С параметрами функций мы уже сталкивались много раз:
+  Functions can not only return values, but also accept them as parameters. We've encountered function parameters many times before:
 
   ```php
   <?php
 
-  // Принимает на вход один параметр любого типа
-  print_r('я параметр');
-  // Принимает на вход два числовых параметра
-  // первый - округляемое число,
-  // второй - число знаков после запятой, которые нужно оставить
+  // Accepts one parameter of any type as input
+  print_r('I'm a parameter');
+  // Accepts two numeric parameters as input
+  // the first is a rounded number,
+  // the second is the number of decimal places to leave
   round(10.1245, 3); // 10.125
-  // Принимает на вход три строковых параметра
-  // первый – что ищем, второй – на что меняем
-  // третий – строка, в которой производим замену
+  // Accepts three string parameters as input
+  // the first one is what we're looking for, the second one is what we're changing it to
+  // the third is the string that we're making replacements to
   str_replace('go', 'mo', 'google'); // 'moogle'
   ```
 
-  В этом уроке, мы научимся создавать функции, которые принимают на вход параметры. Представим, что перед нами стоит задача – реализовать функцию `getLastChar()`, возвращающую последний символ в строке, переданной ей на вход как параметр. Вот как будет выглядеть использование этой функции:
+  In this lesson, we'll learn how to create functions that take parameters as input. Suppose we need to implement a function called `getLastChar()`, which returns the last character in the string passed to it as a parameter. Here's what using this function would look like:
 
   ```php
   <?php
 
-  // Передача параметров напрямую без переменных
+  // Passing parameters directly without variables
   getLastChar('Hexlet'); // 't'
 
-  // Передача параметров через переменные
+  // Passing parameters through variables
   $name1 = 'Hexlet';
   getLastChar($name1); // 't'
   $name2 = 'Goo';
   getLastChar($name2); // 'o'
   ```
 
-  Из описания и примеров кода мы можем сделать следующие выводы:
+  We can draw the following conclusions from the description and examples:
 
-  * Нам нужно определить функцию `getLastChar()`
-  * Функция должна принимать на вход один параметр строкового типа
-  * Функция должна возвращать значение строкового типа
+  * We need to define the `getLastChar()` function
+  * The function must accept one parameter as input, a string
+  * The function must return a string
 
-  Определение функции:
+  Defining the function:
 
   ```php
   <?php
 
   function getLastChar($str)
   {
-      // Вычисляем индекс последнего символа как длина строки - 1
+      // Calculate the index of the last character as the length of the string minus - 1
       return $str[strlen($str) - 1];
   }
   ```
 
-  Разберем его. В скобках указывается имя параметра (`$str`). Так как внутри функции мы не знаем, с каким конкретно значением идет работа, то параметры всегда описываются как переменные. Имя параметра может быть любым, оно не связано с тем, как вызывается функция. Главное, чтобы это имя отражало смысл того значения, которое содержится внутри. Конкретное значение параметра будет зависеть от вызова этой функции.
+  Let's break it down. The name of the parameter (`$str`) is given in parentheses. Since we don't know which value is being worked with within functions, parameters are always described as variables. The name of the parameter can be anything, it's not related to how the function is called. The main thing is that the name should reflect the meaning of the meaning contained within. The specific value of the parameter will depend on the call to this function.
 
-  Этот параметр является обязательным. Если попробовать вызвать функцию без параметра, то интерпретатор выдаст ошибку:
+  This parameter is mandatory. If you try to call a function without a parameter, the interpreter will give an error:
 
   ```sh
-  getLastChar(); // такой код не имеет смысла
+  getLastChar(); // this code doesn't make sense
   ArgumentCountError: Too few arguments to function getLastChar(), 0 passed
   ```
 
-  Точно таким же образом можно указывать два, три и более параметров. Каждый параметр отделяется от другого запятой.
+  You can specify two, three or more parameters in exactly the same way. Each parameter is separated from each other with a comma.
 
   ```php
   <?php
 
-  // функция по нахождению среднего числа
+  // function to find the average number
   function average($x, $y)
   {
       return ($x + $y) / 2;
@@ -79,31 +79,31 @@ theory: |
 
 instructions: |
 
-  Реализуйте функцию `truncate()`, которая обрезает переданную в функцию строку до указанного количества символов, добавляет в конце троеточие и возвращает получившуюся строку. Подобная логика часто используется на сайтах, чтобы отобразить длинный текст в сокращенном виде. Функция принимает два параметра:
+  Implement a function, `truncate()`, which trims a string passed to the function to a specified number of characters, adds a dash at the end, and returns the resulting string. This kind of logic is often used on websites to display long text in short form. The function takes two parameters:
 
-  1. Строка, которую нужно обрезать
-  2. Число символов, которые нужно оставить
+  1. The string that needs to be trimmed
+  2. The number of characters to keep.
 
   ```php
-  // Передаём текст напрямую
-  // Обрезаем текст, оставляя 2 символа
+  // Passing text directly
+  // Trim the text, leaving 2 characters
   truncate('hexlet', 2)  // 'he...'
 
-  // Через переменную
+  // Through a variable
   $text = 'it works!'
-  // Обрезаем текст, оставляя 4 символа
+  // Trim the text, leaving 4 characters
   $result = truncate($text, 4);
   print_r($result); // => 'it w...'
   ```
 
-  Реализовать эту функцию можно различными способами, подскажем лишь один из них. Для решения этим способом вам понадобится взять подстроку из строки, переданной первым параметром в функцию `truncate()`. Используйте для этого функцию [substr()](https://www.php.net/manual/ru/function.substr.php). Подумайте, исходя из задания, с какого индекса и какой длины вам надо извлечь подстроку?
+  This function can be implemented in different ways, we'll tell you just one of them. To do it this way, you need to take a substring from the string passed as the first parameter to the `truncate()` function. Use the [substr()](https://www.php.net/manual/en/function.substr.php)  function to do this. Think, based on the assignment, which index should you extract the substring from, and how long should it be?
 
     ```php
     <?php
     $word = 'welcome';
-    // Передавать параметры в функцию можно через переменные
+    // You can pass parameters to the function via variables
     $length = 3;
     substr($word, 0, $length); // 'wel'
     ```
 
-  С точки зрения проверочной системы не имеет значения, каким из способов будет реализована функция `truncate()` внутри, главное – чтобы она выполняла поставленную задачу
+  From the point of view of the testing system, it doesn't matter which way the `truncate()` function is implemented internally, as long as it performs the task at hand
