@@ -1,9 +1,9 @@
 ---
 
-name: Функции с переменным числом параметров
+name: Variable Parameter Functions
 theory: |
 
-  Интересная особенность некоторых функций — принимать переменное число аргументов. Речь не идёт о значениях по умолчанию. Посмотрите на этот пример:
+  An interesting feature of some functions is that they can accept a varying number of arguments. We're not talking about default values. Check out this example:
 
   ```php
   <?php
@@ -11,13 +11,13 @@ theory: |
   max(1, 10, 3); // 10
   ```
 
-  Функция `max()` находит максимальное значение среди переданных аргументов. Как вы думаете, сколько аргументов она ожидает на вход? Если открыть документацию этой функции, то мы увидим странную конструкцию:
+  The `max()` function finds the maximum value among the passed arguments. How many arguments do you think it expects to receive? This function's documentation shows something interesting:
 
     ```
     max ( mixed $value1 [, mixed $... ] ) : mixed
     ```
 
-    Такая запись говорит о том, что эта функция принимает на вход любое число аргументов (и даже может быть вызвана без них). Необязательность передаваемых аргументов описывается скобками _[]_, точно так же описываются и опциональные параметры, у которых есть значения по умолчанию. Возможность передачи любого числа параметров зашита в этой части _[, ...]_.
+    This means that this function accepts any number of arguments as input (and can even be called without them). Passed arguments that are optional are shown with _[]_, which is the same as how optional parameters that have default values are described. The ability to pass any number of parameters is encoded with _[, ...]_.
 
     ```php
     <?php
@@ -27,10 +27,10 @@ theory: |
 
 instructions: |
 
-  Посчитайте программно (а не в голове) минимальное число среди 3, 10, 22, -3, 0 — и выведите его на экран. Воспользуйтесь функцией `min()`, которая работает аналогично `max()`.
+  Calculate the minimum number (in PHP) out of 3, 10, 22, -3, 0, and display it. Use the `min()` function, which works in the same way as `max()`.
 
 tips: []
 
 # definitions:
-#   - name: Аргумент по умолчанию
-#     description: необязательный аргумент функции.
+#   - name: Default argument
+#     description: is an optional function argument.
