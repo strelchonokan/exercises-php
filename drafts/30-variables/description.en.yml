@@ -1,5 +1,5 @@
 ---
 
-name: Переменные в языке PHP
+name: Variables in PHP
 description:
-  Информацию можно помещать в специальные «хранилища» — переменные. Это позволяет переиспользовать уже существующие данные и не дублировать их в разных частях кода. В этом модуле мы разберем как изменять переменные и именовать их, чтобы чтение вашего кода было понятным для любого разработчика. Вы поймете, что придумать название переменной не так-то просто! А еще расскажем, как использовать переменные для упрощения сложных вычислений.
+  Information can be stored in variables. This allows you to reuse existing data and not duplicate it in different parts of the code. In this module, we'll explain how to change variables and name them, so that reading your code is easy for any developer to understand. You'll find that coming up with a variable name is far from easy! We also tell you how to use variables to simplify complex calculations.
