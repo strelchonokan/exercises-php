@@ -1,53 +1,53 @@
 ---
 
-name: Вызов функции — выражение
+name: Function call - expression
 theory: |
 
-  В программировании, выражение – нечто возвращающее результат, который можно использовать. Мы уже знаем достаточно много о выражениях и о принципах их построения. Математические операции (сложение, вычитание), строковые операции (конкатенация) – все это выражения:
+  In programming, an expression is something that returns a usable output value. We already know a lot about expressions and how they're made. Math operations (addition, subtraction, etc.) and string operations (concatenation) are all expressions:
 
   ```php
   <?php
 
   1 + 5 * 3
   'He' . 'Let'
-  // Переменные могут быть частью выражения
+  // Variables can be a part of an expression
   $rate * 5
   ```
 
-  Особенность выражений в том, что они возвращают результат, который можно, например, присвоить переменной или вывести на экран. Например:
+  One feature of expressions is that they return a result that can be assigned to a variable or printed. For instance:
 
   ```php
   <?php
 
-  // Тут выражение это 1 + 5
+  // Here the expression is 1 + 5
   $sum = 1 + 5;
   print_r(1 + 5);
   ```
 
-  Но не все в программировании является выражением. Определение переменной это инструкция, она не может быть частью выражения. То есть такой код выдаст ошибку:
+  But not just any code can be an expression. The definition of a variable is a statement, it can't be part of an expression. And doing so will lead to an error:
 
   ```php
   <?php
 
-  // Бесмысленный код, который не сработает
+  // Useless code that won't work
   10 + $sum = 1 + 5;
   ```
 
-  Почему об этом важно знать? Как вы увидите дальше, выражения можно комбинировать получая все более сложное поведение в самых неожиданных местах и самым неожиданным образом. Вы будете лучше понимать как можно соединять части кода, чтобы получить нужный результат.
+  Why is this important to know? You can combine expressions to get more and more complex behavior in the most unexpected places and the most surprising ways, as you will see. You'll get a better understanding of how you can combine pieces of code to get the desired results.
 
-  Поговорим о функциях. Вызов функции это выражение или нет? Мы знаем что функции возвращают результат, то есть да, они выражения. Из этого автоматически следует много интересного. Например мы можем использовать вызов функции прямо в математических операциях. Вот как можно получить индекс последнего символа в слове:
+  Let's talk about functions. Is a function call an expression or not? We know that functions return results, which means that, yes, they're expressions. This leads to a lot of interesting possibilities. For example, we can call functions directly in math operations. This is how we can get the last character index in a word:
 
   ```php
   <?php
 
   $name = 'php';
-  // Индексы начинаются с нуля
-  // Вызов метода и вычитание вместе!
+  // Indexes start with zero
+  // Method call and subtraction together!
   $last_index = strlen($name) - 1;
   print_r($last_index); // 2
   ```
 
-  В этом коде нет нового синтаксиса. Мы всего лишь соединили уже известные части опираясь на их природу. Можно пойти еще дальше:
+  This code has no new syntax. We've just combined what we already know. We could go even further:
 
   ```php
   <?php
@@ -56,26 +56,26 @@ theory: |
   print_r(strlen($name) - 1); // => 2
   ```
 
-  Все это справедливо для любых функций, например строковых:
+  All of this applies for any function, e.g., string functions:
 
   ```php
   <?php
 
   $name = 'php';
-  // Используется интерполяция
-  print_r("Последний символ: {$name[strlen($name) - 1]}");
-  // => 'Последний символ: p'
+  // Interpolation
+  print_r("Last character: {$name[strlen($name) - 1]}");
+  // => 'Last character: p'
   ```
 
 instructions: |
 
-  Выведите на экран первую и последнюю буквы предложения, записанного в переменную `text`, в следующем формате:
+  Print the first and last letters of the sentence stored in the variable `text` using this format:
 
   <pre class='hexlet-basics-output'>
   First: N
   Last: t
   </pre>
 
-  Постарайтесь создать только одну переменную, в которую сразу запишется нужный текст перед печатью на экран. В этом уроке мы отрабатываем умение собирать составное выражение.
+  Try to only create one variable you want to assign the text to before you print it. In this lesson, we're practising building a compound expression.
 
 # tips: []
