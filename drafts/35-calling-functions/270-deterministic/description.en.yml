@@ -1,9 +1,9 @@
 ---
 
-name: Детерминированность
+name: Determinacy
 theory: |
 
-  Независимо от того, какой язык программирования используется, функции внутри него обладают некоторыми фундаментальными свойствами. Зная эти свойства, легче прогнозировать поведение функций, способы их тестирования и место их использования. К таким свойствам относится детерминированность. Функция называется детерминированной тогда, когда для одних и тех же входных аргументов она возвращает один и тот же результат. Например, функция, переворачивающая строку, детерминированная.
+  Regardless of the programming language, functions possess certain fundamental properties. Knowing these properties makes it easier to predict the behavior of functions, as well how they can be tested and used. These properties include determinacy. A function is called deterministic when it always returns the same result for the same input arguments. For example, the function that flips a string is deterministic.
 
   ```php
   <?php
@@ -12,7 +12,7 @@ theory: |
   strrev('cat'); // tac
   ```
 
-  Сколько бы раз мы её не вызывали, передавая туда значение `'cat'`, она всегда вернет `'tac'` (хотя технически можно написать её и по-другому, но смысла в этом никакого, а проблем доставит). В свою очередь, функция, возвращающая случайное число, не является детерминированной, так как у одного и того же входа (даже если он пустой, то есть аргументы не принимаются) мы получим всегда разный результат. Насколько он разный - не важно, даже если хотя бы один из миллиона вызовов вернет что-то другое, эта функция автоматически считается недетерминированной.
+  No matter how many times we call it with `'cat'`, it will always return `'tac'` (though you could technically write it differently, but that would make no sense and cause more problems). In turn, a function that returns a random number isn't deterministic, because we'll always get different results for the same input (even if it's empty, i.e., no arguments are passed). How it differs doesn't matter, even if at least one in a million calls returns something different, this function is deemed non-deterministic.
 
   ```php
   <?php
@@ -21,17 +21,17 @@ theory: |
   rand(); // 635369726
   ```
 
-  Зачем это нужно знать? Детерминированность серьёзно влияет на многие аспекты. Детерминированные функции удобны в работе, их легко оптимизировать, легко тестировать. Если есть возможность сделать функцию детерминированной, не раздумывая делайте её такой.
+  So what use is knowing that to us? Determinism significantly affects many aspects. Deterministic functions are easy to work with, easy to optimize, and easy to test. If you can make the function deterministic, then you should absolutely do so.
 
 instructions: |
 
- Выведите на экран случайное число от 1 до 6. Для реализации вам потребуется функция `rand()`, которая может принимать два числа: начальное и конечное
+ Display a random number from 1 to 6. To do this, you'll need the `rand()` function, which can accept two numbers: a start number and an end number
 
 tips:
   - |
-    [Детерминированные функции](https://ru.wikipedia.org/wiki/Чистота_функции#Детерминированность_функции)
+    [Deterministic functions](https://en.wikipedia.org/wiki/Pure_function)
 
 # definitions:
-#   - name: Детерминированность функции
+#   - name: Deterministic functions
 #     description: |
-#       для одного и того же входа, всегда один и тот же выход.
+#       for the same input, always the same output.
