@@ -1,5 +1,5 @@
 ---
 
-name: Определение функций
+name: Definition of functions
 description:
-  Определение собственных функций значительно упрощает написание и поддержку программ. Например, умение определять функции позволяет объединять сложные (составные) операции в одну – вся сложность может быть скрыта за одной простой функцией. Научившись писать функции, вы сделаете первый шаг на пути к построению по-настоящему полезных программ. И мы вам в этом поможем. В этом модуле вы создадите свою первую функцию и научитесь давать ей (а заодно переменным и константам) понятные названия.
+  Defining your own functions makes it much easier to write and maintain programs. For example, the ability to define functions allows you to combine multiple complex operations into one; all the complexity can be hidden behind one simple function. Learning how to write functions is the first step toward building genuinely useful programs. And we can help you with that. In this module, you'll create your first function and learn how to name it (and the variables and constants as well) in a way that you can understand.
