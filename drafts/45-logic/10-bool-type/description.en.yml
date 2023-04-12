@@ -1,26 +1,26 @@
 ---
 
-name: Логический тип
+name: Logic Type
 theory: |
 
-  Кроме арифметических операций со школы нам известны операции сравнения. Например, `5 > 4`. Это звучит как вопрос: «5 больше 4?». В данном случае ответ «да». В других случаях ответом может быть «нет» (например, для `3 < 1`).
+  Besides arithmetic operators, you'll also know comparison operators from school.  For example, `5 > 4`. It sounds like a question, "Is 5 greater than 4?" The answer is "yes". In other cases, the answer may be "no" (e.g., for `3 < 1`).
 
-  Операции сравнения не имеют привязки к числам. Сравнивать можно практически всё что угодно, например, строки. Каждый раз, когда мы входим на какой-то сайт, внутри происходит сравнение введенных логина и пароля с теми, какие есть в базе. И только если они есть, нас пускают во внутрь (аутентифицируют).
+  Comparison operators aren't restricted to numbers. You can put them in almost anything, e.g., strings. Every time we visit a website, it compares the username and password we've entered with those in the database. And they'll let us in if we have them (authentication).
 
-  Языки программирования адаптировали все математические операции сравнения практически в неизменном виде. Единственное серьезное отличие – операторы равенства и неравенства. В математике для этого используется обычное равно `=`, но в программировании такое встречается не часто. Во многих языках символ `=` используется для присваивания значений переменным, поэтому для сравнения взяли `==` или `===`.
+  Programming languages have borrowed all the comparison operators from math virtually unchanged. The only major change concerns the equality and inequality operators. In math, the usual equal sign is `=`, but this is rare in programming.  In many languages, the symbol `=` is used to assign values to variables, so you need to use `==` or `===` for comparison.
 
-  Список операций сравнения:
+  List of comparison operations:
 
-  * `<` меньше
-  * `<=` меньше или равно
-  * `>` больше
-  * `>=` больше или равно
-  * `===` равно
-  * `!==` не равно
+  * `<` less than
+  * `<=` less than or equal to
+  * `>` more than
+  * `>=` greater than or equal to
+  * `===` equal to
+  * `!==` not equal to
 
-  _Небольшая ремарка: для равенства и неравенства также существуют операторы `==` и `!=`, которые мы не будем использовать из-за потенциальной опасности. Мы поговорим об этом в будущих уроках._
+  _A tiny note: for equality and inequality, there's also `==` and `!=`, neither of which we'll use because of the possible risks. We'll discuss it later._
 
-  Логическая операция типа `5 > 4` или `$password === $text` — это выражение, и его результат — специальное значение `true` («истина») или `false` («ложь»). Это новый для нас тип данных — bool. Он содержит всего лишь два этих значения.
+  A logical operation like `5 > 4` or `$password === $text` is an expression, and its result is a special value, `true` or `false`. This is a new data type for us - bool. It has only these two values.
 
   ```php
   <?php
@@ -30,11 +30,11 @@ theory: |
   print_r('one' !== 'one'); // => false
   ```
 
-  Наряду со строками (string) и целыми и рациональными числами, тип bool (булев) — это один из примитивных типов данных в PHP.
+  Along with strings and integers and rational numbers, the boolean type is one of the most primitive data types in PHP.
 
   ---
 
-  Попробуем написать примитивную функцию, которая принимает на вход возраст ребенка и определяет, младенец ли он. Младенцами считаются дети до года:
+  Try writing a primitive function that takes a child's age as input and decides whether they are a baby or not. Babies are defined as children under a year old:
 
   ```php
   <?php
@@ -45,11 +45,11 @@ theory: |
   }
   ```
 
-  Пользуемся тем фактом, что любая операция — это выражение, поэтому единственной строчкой функции пишем «вернуть то значение, которое получится в результате сравнения `$age < 1`».
+  We're taking advantage of the fact that any operation is an expression, so the only line of the function is "return the value that results from comparison `$age < 1`».
 
-  В зависимости от пришедшего аргумента, сравнение будет либо истинным (`true`), либо ложным (`false`), а `return` вернёт этот результат.
+  Depending on the argument that came in, the comparison will either be (`true`) or (`false`), and `return` will return that result.
 
-  Вызовем функцию и выведем на экран результат. Для вывода bool нужно использовать `var_dump()`, а не `print_r()`:
+  Let's call the function and display the result. You should use`var_dump()`, to output bool, not `print_r()`:
 
   ```php
   <?php
@@ -64,7 +64,7 @@ theory: |
 
   <pre class='hexlet-basics-output'>bool(false)</pre>
 
-  А теперь проверим ребенка, которому полгода:
+  Now, perform the check on a child who's six months old:
 
   ```php
   <?php
@@ -77,9 +77,9 @@ theory: |
 
 instructions: |
 
-  Напишите функцию `isPensioner()`, которая принимает возраст в качестве единственного аргумента и проверяет, является ли этот возраст пенсионным. Пенсионным считается возраст 60 лет и больше.
+  Write an `isPensioner()` function that takes age as a single argument and checks if it's over retirement age For the purposes of this exercise, retirement age is considered to be 60 years or over.
 
-  Примеры вызова:
+  Call examples:
 
   ```php
   <?php
@@ -89,5 +89,5 @@ instructions: |
   ```
 
 definitions:
-  - name: "Логический тип (bool)"
-    description: "тип данных с двумя возможными значениями: true (истина) и false (ложь)."
+  - name: "bool"
+    description: "is a data type with two possible values: true and false."
