@@ -1,18 +1,18 @@
 ---
 
-name: Условная конструкция (if)
+name: Conditional constructions (if)
 theory: |
 
-  Задача предиката — получить ответ на вопрос, но обычно этого недостаточно и нужно выполнить определенное действие в зависимости от ответа.
+  The task of a predicate is to get an answer to a question, but usually this isn't enough; you often have to perform a certain action depending on the answer.
 
-  Напишем функцию, которая определяет тип переданного предложения. Для начала она будет отличать обычные предложения от вопросительных.
+  Let's write a function that determines the type of a sentence that's passed to it. To begin with, it will distinguish between normal sentences and question sentences.
 
   ```php
   <?php
 
   function getTypeOfSentence($sentence)
   {
-      // простой способ извлечь последний символ
+      // a simple way to extract the last character
       $lastChar = $sentence[-1];
       if ($lastChar === '?') {
           return 'question';
@@ -25,13 +25,13 @@ theory: |
   getTypeOfSentence('Hodor?'); // question
   ```
 
-  `if` — инструкция. В скобках ей передается выражение-предикат, а затем описывается блок кода в фигурных скобках. Этот блок кода будет выполнен, только если предикат — истина.
+  `if` is an instruction. You need to pass predicate expression to it in parentheses and then define a block of code in curly brackets. This code block executes only if the predicate is true.
 
-  Если предикат — ложь, то блок кода в фигурных скобках пропускается, и функция продолжает свое выполнение дальше. В нашем случае следующая строчка кода — `return 'normal';` — заставит функцию вернуть строку и завершиться.
+  If the predicate is false, we skip the code block in curly brackets, and the function keeps executing. In our case, the next line of code, `return 'normal';` will make the function return the string and terminate.
 
-  Как видите, `return` может находиться где угодно в функции. В том числе внутри блока кода с условием.
+  As you can see, `return` can be anywhere in a function. Including within a conditional code block.
 
-  Если в фигурных скобках после `if` содержится только одна строчка кода, то фигурные скобки можно не писать и сделать так:
+  If the curly brackets after `if` contain only one line of code, you can leave out the brackets:
 
   ```php
   <?php
@@ -50,11 +50,11 @@ theory: |
   print_r(getTypeOfSentence('Hodor?')); // => question
   ```
 
-  Советуем не делать так и **всегда писать фигурные скобки**. В таком случае явно видно, где начинается и заканчивается тело условия. Код становится более чётким и понятным.
+  We recommend not doing that and always writing **curly brackets**. That way, you can clearly see where the conditional construction body starts and ends. The code becomes clearer and more readable.
 
 instructions: |
 
-  Реализуйте функцию `guessNumber()`, которая принимает число и проверяет, равно ли число заданному (пусть это будет 42). Если равно, то функция должна вернуть строку `'You win!'`, в противном случае нужно вернуть строку `'Try again!'`.
+  Implement a function, `guessNumber()`, which takes a number and checks if the number is equal to a given number (let it be 42). If it's equal, the function should return the string `'You win!'`, otherwise, it should return the string `'Try again!'`.
 
   ```php
   <?php
@@ -63,8 +63,8 @@ instructions: |
   guessNumber(61) // 'Try again!'
   ```
 
-tips: []
+# tips: []
 
 definitions:
-  - name: "Условная конструкция"
-    description: "способ задать условие для выполнения кода. Например, `if ($x > 10) { ... }`"
+  - name: "A conditional construct"
+    description: "is a way to set a condition for code execution. For example `if ($x > 10) { ... }`"
