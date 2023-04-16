@@ -2,7 +2,7 @@
 name: else
 theory: |
 
-  Попробуем изменить функцию из предыдущего примера так, чтобы она возвращала не просто тип предложения, а целую строку *Sentence is normal* или *Sentence is question*.
+  Let's try and modify the function from the previous example so that it returns the whole strings of *Sentence is normal* or *Sentence is question* instead of just the sentence type.
 
   ```php
   <?php
@@ -24,9 +24,9 @@ theory: |
   getTypeOfSentence('Hodor?'); // Sentence is question
   ```
 
-  Мы добавили `else` и новый блок с фигурными скобками. Этот блок выполнится, только если условие в `if` — ложь.
+  We added `else` and a new block with curly brackets. This block is only executed if the condition in `if` is false.
 
-  Существует два способа оформления конструкции *if-else*. С помощью отрицания можно изменить порядок блоков:
+  There are two ways to design an *if-else* clause. The negation allows you to change the order of the blocks:
 
   ```php
   <?php
@@ -45,22 +45,22 @@ theory: |
   }
   ```
 
-  Какой способ предпочтительнее? Человеческому мозгу проще мыслить прямолинейно, а не через отрицание. Старайтесь выбирать проверку, которая не содержит отрицаний, и подстраивайте содержимое блоков под неё.
+  Which way is preferable? It's easier for the human brain to reason in a straightforward manner rather than via negation. Try to pick a test that has no negations, and then modify the contents of the code blocks to suit it.
 
 instructions: |
 
-  Реализуйте функцию `normalizeUrl()`, которая выполняет так называемую нормализацию данных. Она принимает адрес сайта и возвращает его с `https://` в начале.
+  Write a function, `normalizeUrl()`, that normalizes data passed to it. It takes a site address and returns it with `https://` at the beginning.
 
-  Функция принимает адреса в виде `АДРЕС` или `http://АДРЕС`, но всегда возвращает адрес в виде `https://АДРЕС`
+  The function accepts addresses as `ADDRESS` or `http://ADDRESS`, but always returns the address as `https://ADDRESS`
 
-  Есть два пути решения:
+  There are two possible solutions:
 
-  1. Можно сравнить первые 7 символов строки-аргумента со строкой `http://`.
-  2. Можно использовать функцию [strpos](https://php.net/manual/ru/function.strpos.php), чтобы проверить, содержится ли в строке-аргументе подстрока `http://`.
+  1. You can compare the first 7 characters of the argument string with the string `http://`.
+  2. You can use the [strpos](https://www.php.net/manual/en/function.strpos.php), function to check if the string-argument contains the substring `http://`.
 
-  А потом на основе этого добавлять или не добавлять `https://`.
+  And then it'll either add or not add `https://` accordingly.
 
-  Примеры вызова:
+  Call examples:
 
   ```php
   <?php
@@ -69,8 +69,8 @@ instructions: |
   normalizeUrl('http://ai.fi'); // 'https://ai.fi'
   ```
 
-tips: []
+# tips: []
 
 definitions:
   - name: "else"
-    description: "способ задать блок кода, который будет выполнен, если условие с `if` не удовлетворено"
+    description: "else is a way to specify the block of code that will be executed if the `if` condition isn't satisfied"
