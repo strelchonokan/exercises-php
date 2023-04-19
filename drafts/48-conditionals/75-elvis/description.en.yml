@@ -3,9 +3,9 @@
 name: Оператор Элвис
 theory: |
 
-  Вообразим задачу: на сайте у пользователей могут быть имена и псевдонимы. Имя не обязательно, но если оно есть, то нужно обращаться к человеку по имени, а если нет, то по псевдониму.
+  Imagine the following problem: users can have names and pseudonyms on a given website. The name isn't necessary, but a user has one, this person should be addressed by their first name, and if not, you should address them by their pseudonym.
 
-  Попробуем собрать строку с приветствием человека по этим требованиям:
+  Let's try to assemble a string that greets users according to these requirements:
 
   ```php
   <?php
@@ -23,9 +23,9 @@ theory: |
   generateGreeting('', 'CoolBob86');    // 'Hello, CoolBob86!'
   ```
 
-  Мы воспользовались тем фактом, что PHP преобразовывает типы. В коде `if ($name)` PHP превратит `$name` в тип `bool` — если была пустая строка, то получится `false`, в ином случае получится `true`.
+  We've taken advantage of the fact that PHP converts types. In the `if ($name)` code, PHP will turn `$name` into a `bool` type; if it's an empty string, it will return `false`, otherwise, it'll return `true`.
 
-  С тернарным оператором можно получить более короткую запись:
+  You can use a ternary operator to write it in an even shorter way:
 
   ```php
   <?php
@@ -36,9 +36,9 @@ theory: |
   }
   ```
 
-  Это частый случай: мы оперируем значениями `bool` и получаем первое значение если, оно `true`, и второе в ином случае.
+  This is a common situation: we work with `bool` values and get the first value if it's  `true` and the second if it isn't.
 
-  В PHP для таких случаев есть специальный оператор:
+  In PHP, there's a special operator for such cases:
 
   ```php
   <?php
@@ -50,19 +50,19 @@ theory: |
   }
   ```
 
-  **`?:` — бинарный оператор, который возвращает первый операнд если он истинен, и второй в ином случае.**
+  **`?:` is a binary operator that returns the first operand if it's true, and the second if it isn't.**
 
-  Его называют Elvis, потому что:
+  It's called Elvis because:
 
-  ![Элвис оператор](https://i.imgur.com/eoLgBHN.png)
+  ![Elvis operator](https://i.imgur.com/eoLgBHN.png)
 
-  А ещё слово Elvis напоминает "else if".
+  Also, Elvis sounds a bit like "else if".
 
 instructions: |
 
-  Напишите функцию `generateAmount()`, которая принимает два числа: количество товаров и стоимость аудита. Если товаров 0, то функция возвращает стоимость аудита, умноженную на 3. Если товаров не 0, то функция возвращает количество товаров.
+  Write a function, `generateAmount()`, that takes two numbers: the number of items and the cost of an audit. If there are 0 goods, the function returns the cost of the audit multiplied by 3. If there aren't 0 goods, the function returns the number of goods.
 
-  Примеры вызова:
+  Call examples:
 
   ```php
   <?php
@@ -74,9 +74,9 @@ instructions: |
   ```
 
 definitions:
-  - name: "Оператор Элвис"
-    description: "выражение, возвращающее первый операнд если он true, и второй в ином случае. Например, `$name ?: $nickname;`."
+  - name: "The Elvis"
+    description: "operator is an expression that returns the first operand if it's true, and the second if it isn't. For example, `$name ?: $nickname;`."
 
 tips:
   - |
-    [elvis](https://php.net/manual/ru/language.operators.comparison.php#language.operators.comparison.ternary)
+    [elvis](https://www.php.net/manual/en/language.operators.comparison.php)
