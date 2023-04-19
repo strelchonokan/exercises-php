@@ -3,13 +3,13 @@
 name: Цикл While
 theory: |
 
-  Программы, которые мы пишем, становятся всё сложнее и объемнее. Они все ещё очень далеки от реальных программ, где количество строк кода измеряется десятками и сотнями тысяч (а иногда и миллионами), но текущая сложность уже способна заставить напрячься людей без опыта. Начиная с этого урока, мы переходим к одной из самых сложных базовых тем в программировании – *циклам*.
+  Our code is getting more and more complex and extensive. It's still quite far from real applications, which contain tens or hundreds of thousands (sometimes millions) of lines of code. However, our code is already complex enough to make inexperienced programmers feel a bit nervous. Starting with this lesson, we move on to one of the most difficult of the basic topics in programming: *loops*.
 
-  Любые прикладные программы служат очень прагматичным целям. Они помогают управлять сотрудниками, финансами, развлекают в конце концов. Несмотря на различия, все эти программы выполняют заложенные в них алгоритмы, которые очень похожи между собой. Что это такое? Алгоритм — это последовательность действий (инструкций), которая приводит нас к некоему ожидаемому результату. В принципе, это описание подходит под любую программу, но под алгоритмами обычно понимается что-то более специфичное.
+  All applications serve very pragmatic purposes. They help manage employees, finances, and entertain, after all. Despite the differences, all these programs contain and execute similar algorithms. What's an algorithm? An algorithm is a sequence of actions (statements) which lead us to an expected result. This description fits any program in general, but with algorithms, we usually mean something more specific.
 
-  Представьте себе, что у нас есть книга и мы хотим найти внутри неё какую-то конкретную фразу. Саму фразу мы помним, но не знаем, на какой она странице. Как найти нужную страницу? Самый простой (и долгий) способ — последовательно просматривать страницы до тех пор, пока мы не найдем нужную. В худшем случае придется просмотреть все страницы, но результат мы всё равно получим. Именно этот процесс и называется алгоритмом. Он включает в себя логические проверки (нашли ли фразу) и перебор страниц. Количество страниц, которое придется посмотреть, заранее не известно, но сам процесс просмотра повторяется из раза в раз совершенно одинаковым образом. Для выполнения повторяющихся действий как раз и нужны циклы. Каждый повтор, в таком случае, называется итерацией.
+  Imagine we have a book, and we want to find a particular phrase within it. We remember the phrase itself, but we don't know what page it is on. How do we find the right page? The easiest (and longest) way is to look through the pages one by one until we find the right one. In the worst case, we'll have to look through all the pages, but we still get the result we want. This very process is called an algorithm. It includes a logical verification (if the phrase is found) and an exhaustive page search. The number of pages you'll have to look through isn't known in advance, but the process itself is repeated again and again in exactly the same way. This is why we need loops to perform repetitive actions. In this case, each repetition is called an iteration.
 
-  Допустим мы хотим написать функцию, которая выводит на экран все числа от 1 до указанного (через аргументы):
+  Let's say we want to write a function that prints all numbers between 1 and a given number (via arguments):
 
   ```php
   <?php
@@ -20,16 +20,16 @@ theory: |
   // => 3
   ```
 
-  Эту функцию невозможно реализовать уже изученными средствами, так как количество выводов на экран заранее не известно. А с циклами это не составит никаких проблем:
+  This function cannot be implemented with the tools we've already learned to use, because the number of outputs on the screen is not known in advance. But with loops this won't be a problem:
 
   ```php
   <?php
 
   function printNumbers($lastNumber)
   {
-      // i сокращение от index (порядковый номер)
-      // используется по общему соглашению во множестве языков
-      // как счетчик цикла
+      // i means index
+      // used as a loop counter by common agreement
+      // in many languages
       $i = 1;
 
       while ($i <= $lastNumber) {
@@ -52,46 +52,46 @@ theory: |
   finished!
   </pre>
 
-  В коде функции использован цикл `while`. Он состоит из трёх элементов:
+  Here we use a `while` loop in the function. It has three elements:
 
-  * Ключевое слово `while`. Несмотря на схожесть с вызовом функций, это не вызов функции.
-  * Предикат. Условие, которое указывается в скобках после `while`. Это условие вычисляется на каждой итерации.
-  * Тело цикла. Блок кода в фигурных скобках.
+  * The key word here is `while`. It's not a function call, although it resembles it.
+  * Predicate. A condition given in parentheses after `while`. This condition is computed at each iteration.
+  * Loop body. Block of code in curly brackets.
 
-  Конструкция читается так: «делать то, что указано в теле цикла, пока истинно условие (предикат) `$i <= $lastNumber`». Разберем работу этого кода для вызова `printNumbers(3)`:
+  The construction reads like this: "do what's specified in the body of the loop as long as the condition (predicate) `$i <= $lastNumber`». Let's look at how this code works to `printNumbers(3)`:
 
   ```php
   <?php
 
-  // Инициализируется переменная i
+  // Initializes the i variable
   $i = 1;
 
-  // Предикат возвращает true, поэтому выполняется тело цикла
+  // Predicate is true, so execute loop body
   while (1 <= 3)
   // print_r(1);
   // $i = 1 + 1;
 
-  // Закончилось тело цикла, поэтому происходит возврат в начало
+  // The loop body is executed, so we return to the beginning
   while (2 <= 3)
   // print_r(2);
   // $i = 2 + 1;
 
-  // Закончилось тело цикла, поэтому происходит возврат в начало
+  // The loop body is executed, so we return to the beginning
   while (3 <= 3)
   // print_r(3);
   // $i = 3 + 1;
 
-  // Предикат возвращает false, поэтому выполнение переходит за цикл
+  // Predicate is false, so execution goes beyond loop
   while (4 <= 3)
 
   // print_r('finished!');
-  // На этом этапе i равен 4, но он нам уже не нужен
-  // функция завершается
+  // At this point, i is 4, but we don't need it anymore
+  // function terminates
   ```
 
-  Самое главное в цикле — завершение его работы (выход из цикла). Процесс, который порождает цикл, должен в конце концов остановиться. Ответственность за остановку полностью лежит на программисте. Обычно задача сводится к введению переменной, называемой «счётчиком цикла». Сначала счётчик инициализируется, то есть ему задаётся начальное значение. В нашем примере это инструкция `$i = 1`, выполняемая до входа в цикл. Затем в условии цикла проверяется, достиг ли счётчик своего предельного значения. И, наконец, счётчик меняет свое значение `$i = $i + 1`.
+  The main purpose of a loop is to end it (exit from a loop). The process which generates the loop must eventually stop. It's up to the programmer to stop it. Usually this comes down to introducing a variable called a loop counter.  The counter should first be initialized, that is, you must assign it an initial value.  In our example, it's the instruction `$i = 1`, which is executed before entering the loop. Then the loop condition checks to see if the counter has reached its limiting value. Finally, the counter changes its value `$i = $i + 1`.
 
-  На этом моменте новички делают больше всего ошибок. Например, случайно забытое увеличение счётчика или неправильная проверка в предикате способны привести к зацикливанию. Это ситуация, при которой цикл работает бесконечно, и программа никогда не останавливается. В таком случае приходится её завершать принудительно (кто знает, может быть когда зависают реальные программы, в этот момент внутри них выполняется бесконечный цикл).
+  This is where beginners make the most mistakes. For example, accidentally forgetting to increment the counter or having an incorrect predicate check can lead to an infinite loop. This is a situation in which the loop runs indefinitely and the program never stops. We then have to end it forcibly (it may sometimes be the case that when real applications freeze, there's an infinite loop running inside them).
 
   ```php
   <?php
@@ -100,8 +100,8 @@ theory: |
   {
       $i = 1;
 
-      // Этот цикл никогда не остановится
-      // и будет печатать всегда одно значение
+      // This loop will never stop
+      // and will always print one value
       while ($i <= $lastNumber) {
           print_r($i);
       }
@@ -109,21 +109,21 @@ theory: |
   }
   ```
 
-  В некоторых случаях бесконечные циклы полезны. Здесь мы такие случаи не рассматриваем, но полезно видеть как выглядит этот код:
+  In some cases, infinite loops are useful. We won't deal with those cases here, but it's useful to see what it looks like:
 
   ```php
   <?php
 
   while (true) {
-      // Что-то делаем
+      // Doing something
   }
   ```
 
-  Подведём итог. Когда всё же нужны циклы, а когда можно обойтись без них? Физически невозможно обойтись без циклов тогда, когда алгоритм решения задачи требует повторения каких-то действий, как в примере с книгой, и количество этих операций заранее неизвестно.
+  To summarize. When do we need loops, and when can we do without them? It's physically impossible to do without loops when a problem-solving algorithm requires actions to be repeated, like with the example with the book, and the number of times you'll need to perform these operations can't be known in advance.
 
 instructions: |
 
-  Модифицируйте функцию `printNumbers()` так, чтобы она выводила числа в обратном порядке. Для этого нужно идти от верхней границы к нижней. То есть, счетчик должен быть инициализирован максимальным значением, а в теле цикла его нужно уменьшать до нижней границы.
+  Edit the  `printNumbers()` function so that it prints the numbers in reverse order. To do this, go from the upper bound to the lower bound. Essentially, the counter needs to be initialized with the maximum value, and in the body of the loop, it must be incremented down to the lower limit.
 
 
   ```php
@@ -142,9 +142,9 @@ instructions: |
 
 tips:
   - |
-    [Цикл while](https://www.php.net/manual/ru/control-structures.while.php)
+    [While loop](https://www.php.net/manual/en/control-structures.while.php)
 
 
 definitions:
-  - name: Цикл While
-    description: инструкция для повторения кода, пока удовлетворяется какое-либо условие.
+  - name: The While loop 
+    description: is an instruction to repeat the code as long as a certain condition is met.
