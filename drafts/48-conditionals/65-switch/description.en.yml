@@ -1,77 +1,77 @@
 ---
 
-name: Конструкция Switch
+name: Switch construction
 theory: |
 
-  Многие языки, в дополнение к условной конструкции *if*, включают в себя **switch**. Это специализированная версия *if*, созданная для некоторых особых ситуаций. Например ее имеет смысл использовать там, где есть цепочка *if else* с проверками на равенство. Например:
+  Many languages include a **switch** in addition to the conditional *if* construct. This is a specialized version of *if*, designed for certain cases. For example, it makes sense for us to have an *if else* chain for equality checks. For example:
 
   ```php
   <?php
 
   if ($status === 'processing') {
-      // Делаем раз
+      // Doing it once
   } elseif ($status === 'paid') {
-      // Делаем два
+      // Doing it twice
   } elseif ($status === 'new') {
-      // Делаем три
+      // Doing it three times
   } else {
-      // Делаем четыре
+      // Doing it four times
   }
   ```
 
-  Эта составная проверка обладает одной отличительной чертой, каждая ветка здесь, это проверка значения переменной `status`. Switch позволяет записать этот код короче и выразительнее:
+  This composite check has one distinguishing feature, each branch here is a check for the value of the `status` variable. Switch allows you to write this code in a shorter and more expressive way:
 
   ```php
   <?php
 
   switch ($status) {
       case 'processing': // status == processing
-          // Делаем раз
+          // Doing it once
           break;
       case 'paid': // status == paid
-          // Делаем два
+          // Doing it twice
           break;
       case 'new': // status == new
-          // Делаем три
+          // Doing it three times
           break;
       default: // else
-          // Делаем четыре
+          // Doing it four times
   }
   ```
 
-  Свитч довольно сложная конструкция с точки зрения количества элементов из которых она состоит:
+  A switch is a rather complicated construction in terms of the number of elements it consists of:
 
-  * Внешнее описание, в которое входит ключевое слово `switch`. Переменная, по значениям которой *switch* будет выбирать поведение. И фигурные скобки для вариантов выбора.
-  * Конструкции `case` и `default`, внутри которых описывается поведение для разных значений рассматриваемой переменной. Каждый `case` соответствует `if` в примере выше. `default` это особая ситуация, соответствующая ветке `else` в условных конструкциях. Как `else`, указывать `default` не обязательно.
-  * `break` нужен для предотвращения "проваливания". Если его не указать, то после выполнения нужного `case` выполнение перейдет к следующему `case` и так либо до ближайшего `break`, либо до конца *switch*.
+  * An external definition containing the keyword `switch`. A variable whose values *switch* use to select a behavior. And curly brackets for behavior branches.
+  * The `case` and `default` constructions, where the behavior for different values of the variable is described. Each case corresponds to an `if` in the example above. `default` is a special situation, corresponding to the `else` branch in conditional constructions. Like with `else`, there's no need to specify `default`.
+  * `break` is needed to prevent it from not working properly. If it's not specified, then after the desired `case` is executed, the execution will go to the next `case` and so on either until it reaches the nearest `break`, or until the end of the *switch*.
 
-  Фигурные скобки в *switch* не определяют блок кода как это было в других местах. Внутри допустим только тот синтаксис, который показан выше. То есть там можно использовать `case` или `default`. А вот внутри каждого `case` (и `default`) ситуация другая. Здесь можно выполнять любой произвольный код:
+  The curly brackets in the *switch* don't define a block of code like they did elsewhere. Only the syntax shown above is acceptable. In other words, you can use `case` or `default` there. But inside each `case` (and `default`) the situation is different. You can execute any code you like here:
 
   ```php
   <?php
 
   switch ($count) {
       case 1:
-          // Делаем что-то полезное
+          // Doing something useful
           break;
       case 2:
-          // Делаем что-то полезное
+          // Doing something useful
           break;
       default:
-          // Что-то делаем
+          // Doing something
   }
   ```
 
-  Иногда, результат, полученный внутри `case` это конец выполнения функции содержащей *switch*. В таком случае его нужно как-то вернуть наружу. Для решения этой задачи есть два способа.
+  Sometimes, the result inside `case` means ending the function containing the *switch*. If this happens, you need to return it outside somehow. There are two ways to do this.
 
-  Первый. Создать переменную перед *switch*, заполнить ее в *case* и затем, в конце, вернуть значение этой переменной наружу.
+  The first way. Create a variable before *switch*, fill it with something in *case* and then return the value of that variable outward at the end.
 
   ```php
   <?php
 
   function doSomethingGood($count)
   {
-      // Заполняем
+      // Filling it
       switch ($count) {
           case 1:
               $result = 'one';
@@ -83,12 +83,12 @@ theory: |
               $result = null;
       }
 
-      // Возвращаем
+      // Return
       return $result;
   }
   ```
 
-  Второй способ проще и короче. Вместо создания переменной, *case* позволяет внутри себя делать обычный возврат из функции. А так как после `return` никакой код не выполняется, то мы можем избавиться от `break`:
+  The second way is easier and shorter. Instead of creating a variable, *case* allows you to internally do a normal return from a function. And since no code is executed after `return` we can get rid of `break`:
 
   ```php
   <?php
@@ -106,18 +106,18 @@ theory: |
   }
   ```
 
-  Switch хоть и встречается в коде, но технически всегда можно обойтись без него. Ключевая польза при его использовании в том, что он лучше выражает намерение программиста, когда нужно проверять конкретные значения переменной. Хотя кода и стало, физически, чуть больше, читать его легче в отличие от блоков *elseif*.
+  Though switch is present in the code, you can always find a way to avoid it.  The key benefit of using it is that it better expresses the programmer's intention when checking the values of a particular variable. Although there's now physically more code, it's easier to read than loads of *elseif* blocks.
 
 instructions: |
 
-  Реализуйте функцию `getNumberExplanation()`, которая принимает на вход число и возвращает объяснение этого числа. Если для числа нет объяснения, то возвращается `null`:
+  Write a function, `getNumberExplanation()`, that describes a number passed to it. If there's no explanation available, it returns `null`:
 
   ```php
   <?php
 
   getNumberExplanation(8); // null
 
-  // Объяснения есть только для указанных ниже чисел
+  // There are explanations only for the following numbers
   getNumberExplanation(666); // 'devil number'
   getNumberExplanation(42);  // 'answer for everything'
   getNumberExplanation(7);   // 'prime number'
@@ -125,6 +125,6 @@ instructions: |
 
 tips:
   - |
-    [switch](https://www.php.net/manual/ru/control-structures.switch.php)
+    [switch](https://www.php.net/manual/en/control-structures.switch.php)
 
-definitions: []
+# definitions: []
