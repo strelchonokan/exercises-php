@@ -1,6 +1,6 @@
 ---
 
-name: Пограничные случаи
+name: Edge cases
 theory: |
 
   The `mysubstr()`, function you implemented in the last lesson contains many errors. "But it passed the tests!" Yes, but there were no **edge cases** in these checks. The function worked fine with normal arguments, but how would it behave if you gave it these length options?
