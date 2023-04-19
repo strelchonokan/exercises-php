@@ -1,9 +1,9 @@
 ---
 
-name: Тернарный оператор
+name: Ternary operator
 theory: |
 
-  Посмотрите на определение функции, которая возвращает модуль переданного числа:
+  Look at the definition of this function, which returns the modulus of a given number:
 
   ```php
   <?php
@@ -21,11 +21,11 @@ theory: |
   abs(-10); // 10
   ```
 
-  Можно ли записать её лаконичнее? Что-то вроде `return ОТВЕТ В ЗАВИСИМОСТИ ОТ УСЛОВИЯ`? Для этого справа от return должно быть выражение, но `if` — это инструкция, а не выражение.
+  Can we write it more concisely? Something like return `return ОТВЕТ В ЗАВИСИМОСТИ ОТ УСЛОВИЯ`? That would require an expression following return, but if is a statement, not an expression.
 
-  В PHP существует конструкция, которая по своему действию аналогична конструкции *if-else*, но при этом является выражением. Она называется **тернарный оператор**.
+  In PHP, there's a construct that works like the*if-else* construct, but is an expression. It's called the ternary operator.
 
-  Тернарный оператор — единственный в своем роде оператор, требующий три операнда:
+  The ternary operator is the only JavaScript operator that takes three operands:
 
   ```php
   <?php
@@ -36,11 +36,11 @@ theory: |
   }
   ```
 
-  Общий паттерн выглядит так: `<predicate> ? <expression on true> : <expression on false>`.
+  It generally looks like this: `<predicate> ? <expression on true> : <expression on false>`.
 
-  Давайте перепишем начальный вариант `getTypeOfSentence()` аналогично:
+  Let's rewrite the initial version of `getTypeOfSentence()` in the same way:
 
-  Было:
+  Before:
 
   ```php
   <?php
@@ -57,7 +57,7 @@ theory: |
   }
   ```
 
-  Стало:
+  After:
 
   ```php
   <?php
@@ -75,13 +75,13 @@ theory: |
 
   ---
 
-  Если вы помните, в чём сила выражений, то вероятно уже догадались, что тернарный оператор можно вкладывать в тернарный оператор. **Не делайте этого :)** Такой код тяжело и читать, и отлаживать, это очень плохая практика.
+  If you remember the main strength of expressions, then you probably figured out by now that you can nest a ternary operator in another ternary operator. ** Don't do it :)** This sort of code is hard both to read and to debug, it's very bad practice.
 
 instructions: |
 
-  Реализуйте функцию `flipFlop()`, которая принимает на вход строку и, если эта строка равна `'flip'`, возвращает строку `'flop'`. В противном случае функция должна вернуть `'flip'`.
+  Implement the `flipFlop()` function, which takes a string as input and, if that string is `'flip'`, it returns the string `'flop'`. Otherwise, the function needs to return `'flip'`.
 
-  Примеры вызова:
+  Call examples:
 
   ```php
   <?php
@@ -90,11 +90,11 @@ instructions: |
   flipFlop('flop'); // 'flip'
   ```
 
-  Попробуйте написать два варианта функции: с обычным if-else, и с тернарным оператором.
+  Try writing two versions of the function: one with the usual if-else, and one with a ternary operator.
 
-tips: []
+# tips: []
 
 definitions:
-  - name: Тернарный оператор
+  - name: The ternary operator
     description: |
-      способ превратить простую условную инструкцию в выражение, например, `$number >= 0 ? $number : -$number`.
+      is a way to turn a simple conditional instruction into an expression, e.g., `$number >= 0 ? $number : -$number`.
