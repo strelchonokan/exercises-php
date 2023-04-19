@@ -1,9 +1,9 @@
 ---
 
-name: Обход строк
+name: Traversing strings
 theory: |
 
-  Циклы подходят не только для обработки чисел, но и при работе со строками. В первую очередь благодаря возможности получить конкретный символ по его индексу. Ниже пример кода, который распечатывает буквы каждого слова на отдельной строке:
+  You can use loops to process strings as well as numbers. Mainly as a way to retrieve a specific character by its index. Below is some sample code that prints the letters of each word on a different line:
 
   ```php
   <?php
@@ -11,10 +11,10 @@ theory: |
   function printNameBySymbol($name)
   {
       $i = 0;
-      // Такая проверка будет выполняться до конца строки
-      // включая последний символ. Его индекс `длина строки - 1`.
+      // This check will be performed until the end of the string
+      // including the last character. Its index is `line length - 1`.
       while ($i < strlen($name)) {
-          // Обращаемся к символу по индексу
+          // Getting a character by its index
           print_r("$name[$i]\n");
           $i = $i + 1;
       }
@@ -30,11 +30,11 @@ theory: |
 
   https://replit.com/@hexlet/php-basics-loops-using-printnamebysymbol
 
-  Самое главное в этом коде, поставить правильное условие в `while`. Это можно сделать сразу двумя способами: `$i < strlen($name)` или `$i <= strlen($name) - 1`. Оба способа приводят к одному результату.
+  The main thing in this code is to set the right condition in `while`. This can be done in two ways: `$i < strlen($name)` or `$i <= strlen($name) - 1`. Both lead to the same result.
 
 instructions: |
 
-  Реализуйте функцию `printReversedWordBySymbol()`, которая печатает переданное слово посимвольно, как в примере из теории, но делает это в обратном порядке.
+  Write a function, `printReversedWordBySymbol()`, which takes a word as input and prints it by character, just as in the example we gave, but does it in reverse order.
 
   ```php
   <?php
@@ -50,4 +50,4 @@ instructions: |
   // => 'H'
   ```
 
-tips: []
+# tips: []
