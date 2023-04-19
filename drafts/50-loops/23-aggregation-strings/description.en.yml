@@ -1,11 +1,11 @@
 ---
 
-name: Агрегация данных (Строки)
+name: Data Aggregation (Strings)
 theory: |
 
-  Агрегация применяется не только к числам, но и к строкам. Это такие задачи, в которых строка формируется динамически, то есть заранее неизвестно, какого она размера и что будет содержать.
+  You can use aggregation with strings as well as with numbers. In most cases, this applies to dynamic string generation, where you don't know in advance what size the string will be and what it will contain.
 
-  Представьте себе функцию, которая умеет «умножать» строку, то есть она повторяет её указанное количество раз:
+  Imagine a function that multiplies a string, i.e., it repeats a string a given number of times:
 
   ```php
   <?php
@@ -13,19 +13,19 @@ theory: |
   repeat('hexlet', 3); // 'hexlethexlethexlet'
   ```
 
-  Принцип работы этой функции довольно простой: в цикле происходит «наращивание» строки указанное количество раз:
+  The core mechanism of this function is simple, the loop increments through the string a given number of times:
 
   ```php
   <?php
 
   function repeat($text, $times)
   {
-      // Нейтральный элемент для строк – пустая строка
+      // For strings, the neutral element is an empty string
       $result = '';
       $i = 1;
 
       while ($i <= $times) {
-          // Каждый раз добавляем строку к результату
+          // Add a string on each iteration
           $result = "{$result}{$text}";
           $i = $i + 1;
       }
@@ -34,12 +34,12 @@ theory: |
   }
   ```
 
-  Распишем выполнение этого кода по шагам:
+  Let's break down down the code's execution into steps:
 
   ```php
   <?php
 
-  // Для вызова repeat('hexlet', 3);
+  // To call repeat('hexlet', 3);
   $result = '';
   $result = "{$result}hexlet"; // hexlet
   $result = "{$result}hexlet"; // hexlethexlet
@@ -48,7 +48,7 @@ theory: |
 
 instructions: |
 
-  Реализуйте функцию `joinNumbersFromRange()`, которая объединяет все числа из диапазона в строку:
+  Write a function, `joinNumbersFromRange()`, which joins all numbers in a range into a string:
 
   ```php
   <?php
@@ -58,4 +58,4 @@ instructions: |
   joinNumbersFromRange(5, 10); // '5678910'
   ```
 
-tips: []
+# tips: []
