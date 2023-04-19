@@ -1,13 +1,13 @@
 ---
 
-name: Агрегация данных (Числа)
+name: Data aggregation (Numbers)
 theory: |
 
-  Отдельный класс задач, который не может обойтись без циклов, называется агрегированием данных. К таким задачам относятся поиск максимального, минимального, суммы, среднего арифметического и т.п. Их главная особенность в том, что результат зависит от всего набора данных. Для расчёта суммы нужно сложить **все** числа, для вычисления максимального нужно сравнить **все** числа.
+  One particular type of task that can't be done without loops is data aggregation. These tasks can include searching for the maximum or minimum number in an array, and finding sums and arithmetic means. Their main thing is that the result depends on the whole set of data. To calculate the sum, you need to add all the numbers together, to calculate the maximum you need to compare **all** the numbers.
 
-  С такими задачами хорошо знакомы все, кто занимаются числами, например, бухгалтеры или маркетологи. Обычно их выполняют в таблицах наподобие Microsoft Excel или Google Spreadsheets.
+  Anyone who deals with numbers, such as accountants or marketers, will be familiar with these tasks. They're usually done in a spreadsheet like Microsoft Excel or Google Spreadsheets.
 
-  Разберем самый простой пример – поиск суммы набора чисел. Реализуем функцию, которая складывает числа в указанном диапазоне, включая границы. Диапазоном в данном случае называется ряд чисел от какого-то начала до определенного конца. Например, диапазон [1, 10] включает в себя все целые числа от 1 до 10.
+  Let's look at the simplest example: finding the sum of a set of numbers. We'll implement a function that adds numbers in the specified range, including bounds. A range in this case is a series of numbers from a certain beginning to a certain end. For example, the range [1, 10] includes all integers from 1 to 10.
 
   ```php
   <?php
@@ -15,79 +15,79 @@ theory: |
   sumNumbersFromRange(5, 7); // 5 + 6 + 7 = 18
   sumNumbersFromRange(1, 2); // 1 + 2 = 3
 
-  // [1, 1] диапазон с одинаковым началом и концом – тоже диапазон
-  // он в себя включает ровно одно число – саму границу диапазона
+  // [1, 1] - a range with the same beginning and end is also a range
+  // it includes exactly one number - the range boundary itself
   sumNumbersFromRange(1, 1); // 1
   sumNumbersFromRange(100, 100); // 100
   ```
 
-  Для реализации этого кода нам понадобится цикл, так как сложение чисел – это итеративный процесс (он повторяется для каждого числа), а количество итераций зависит от размера диапазона. Перед тем, как смотреть код, попробуйте ответьте на вопросы ниже:
+  To implement this code, we need a loop, because adding numbers is an iterative process (it is repeated for each number), and the number of iterations depends on the size of the range. Before you look at the code, try answering the questions below:
 
-  * Каким значением инициализировать счетчик?
-  * Как он будет изменяться?
-  * Когда цикл должен остановиться?
+  * What value should I initialize the counter with?
+  * How will it change?
+  * When should the loop stop?
 
-  Попробуйте сначала подумать над этими вопросами, а затем посмотрите код ниже:
+  Try thinking about these questions first and then look at the code below:
 
   ```php
   <?php
 
   function sumNumbersFromRange ($start, $finish)
   {
-      // Технически можно менять $start
-      // Но входные аргументы нужно оставлять в исходном значении
-      // Это сделает код проще для анализа
+      // Technically, you can change $start
+      // But the input arguments must be left at their original value
+      // This will make the code easier to analyze
       $i = $start;
-      $sum = 0; // Инициализация суммы
+      $sum = 0; // Initializing the sum
 
-      while ($i <= $finish) { // Двигаемся до конца диапазона
-          $sum = $sum + $i; // Считаем сумму для каждого числа
-          $i = $i + 1; // Переходим к следующему числу в диапазоне
+      while ($i <= $finish) { // Moving to the end of the range
+          $sum = $sum + $i; // Calculate the sum for each number
+          $i = $i + 1; // Move to the next number in the range
       }
 
-      // Возвращаем получившийся результат
+      // Return the result
       return $sum;
   };
   ```
 
-    Общая структура цикла здесь стандартна. Есть счетчик, который инициализируется начальным значением диапазона, есть сам цикл с условием остановки при достижении конца диапазона, и, наконец, изменение счетчика в конце тела цикла. Количество итераций в таком цикле равно `$finish - $start + 1`. То есть для диапазона от 5 до 7 – это 7 - 5 + 1, то есть 3 итерации.
+    The general structure of the loop here is standard. There's a counter which is initialized with the initial value of the range, there's the loop itself with the condition to stop when the end of the range is reached, and, finally, the counter changes at the end of the loop body. The number of iterations in such a loop is `$finish - $start + 1`. So for a range of 5 to 7, it's 7 - 5 + 1, i.e., 3 iterations.
 
-  Главные отличия от обычной обработки связаны с логикой вычислений результата. В задачах на агрегацию всегда есть какая-то переменная, которая хранит внутри себя результат работы цикла. В коде выше это `sum`. На каждой итерации цикла происходит её изменение, прибавление следующего числа в диапазоне: `$sum = $sum + $i`. Весь процесс выглядит так:
+  The main differences from normal processing are related to the logic of calculating the result. With aggregation tasks, there's always a variable that stores the result of the loop. In the code above, it's sum. With each iteration of the loop, it gets changed by adding the next number in the range:  `$sum = $sum + $i`. The whole process looks like this:
 
   ```php
   <?php
 
-  // Для вызова sumNumbersFromRange(2, 5);
+  // To call sumNumbersFromRange(2, 5);
   $sum = 0;
   $sum = $sum + 2; // 2
   $sum = $sum + 3; // 5
   $sum = $sum + 4; // 9
   $sum = $sum + 5; // 14
-  // 14 – результат сложения чисел в диапазоне [2, 5]
+  // 14 - result of adding numbers in the range [2, 5]
   ```
 
-  У переменной `$sum` есть начальное значение, равное 0. Зачем вообще задавать значение? Любая повторяющаяся операция начинается с какого-то значения. Нельзя просто так объявить переменную и начать с ней работать внутри цикла. Это может приводить к ошибкам:
+  The `$sum` variable has an initial value of 0. Why set a value at all? Any operation that repeats needs to start with a value. You can't just declare a variable and start working with it inside a loop. This can lead to errors:
 
   ```php
   <?php
 
-  // начальное значение не задано
-  // PHP автоматически делает его равным NULL
+  // the initial value isn't set
+  // PHP automatically sets it to NULL
   $sum;
 
-  // первая итерация цикла
+  // the first iteration of the loop
   $sum = $sum + 2; // ?
   ```
 
-  В результате такого вызова внутри `$sum` окажется верный результат, но интерпретатор выведет ошибку: `PHP Notice:  Undefined variable: sum`. Она возникает из-за попытки использовать неопределённую переменную. Значит какое-то значение всё же нужно. Почему в коде выше выбран 0? Очень легко проверить, что все остальные варианты приведут к неверному результату. Если начальное значение будет равно 1, то результат получится на 1 больше, чем нужно.
+  The result of this call will be a valid result inside `$sum` but the interpreter will print the following error: `PHP Notice:  Undefined variable: sum`. It occurs because of an attempt to use an undefined variable. So a value is needed after all. Why is 0 selected in the code above? It's very straightforward to check that all other options will lead to the wrong result. If the initial value is 1, then the result will be 1 more than necessary.
 
-  В математике существует понятие **нейтральный элемент операции** (у каждой операции свой элемент). Это понятие имеет очень простой смысл. Операция с этим элементом не изменяет то значение, над которым проводится операция. В сложении любое число плюс ноль дает само число. При вычитании – тоже самое. Даже у конкатенации есть нейтральный элемент – это пустая строка: `'' + 'one'` будет 'one'.
+  In mathematics, there's a concept of a neutral or identity element of an operation (each operation has its own element). This concept has a very simple meaning. An operation with this element doesn't change the value on which the operation is performed. In addition, any number plus zero gives the number itself. This is the same for subtraction. Even concatenation has a neutral element, which is an empty string:  `'' + 'one'` will be  'one'.
 
-  Вопрос на самопроверку. Какой нейтральный элемент у операции умножения?
+  Self-check. What is the neutral element of the multiplication operation?
 
 instructions: |
 
-  Реализуйте функцию `multiplyNumbersFromRange()`, которая перемножает числа в указанном диапазоне включая границы диапазона. Пример вызова:
+  Implement a function called `multiplyNumbersFromRange()`, which multiplies numbers in a specified range including range boundaries. Call example:
 
     ```php
     <?php
@@ -97,4 +97,4 @@ instructions: |
     multiplyNumbersFromRange(6, 6); // 6
     ```
 
-tips: []
+# tips: []
