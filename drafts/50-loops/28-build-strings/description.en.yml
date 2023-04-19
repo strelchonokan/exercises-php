@@ -1,11 +1,11 @@
 ---
 
-name: Формирование строк в циклах
+name: Forming strings with loops
 theory: |
 
-  Ещё одно использование циклов – формирование строк. Подобная задача нередко встречается в веб-программировании. Она сводится к обычной агрегации с применением интерполяции или конкатенации.
+  Loops also allow you to generate strings. This is a common task for web development. It's merely basic aggregation using interpolation or concatenation.
 
-  Есть одна задача, крайне популярная среди людей, проводящих собеседования, это переворот строки. Её можно решить множеством разных способов, но именно посимвольный перебор считается самым базовым. Пример работы этой функции:
+  One especially popular task among interviewers is to do a string reversal. There are lots of ways to solve it, but the most basic is by iterating each character. Have a look at how this function works:
 
   ```php
   <?php
@@ -13,7 +13,7 @@ theory: |
   reverse('Hexlet'); // telxeH
   ```
 
-  Общая идея переворота состоит в следующем: нужно брать символы по очереди с начала строки и соединять их в обратном порядке. Звучит довольно просто. Давайте проверим:
+  The general idea of a string reversal is that you take characters one by one from the beginning of the string and then connect them together in reverse order. Sounds like a piece of cake. Now let's examine it:
 
   ```php
   <?php
@@ -21,14 +21,14 @@ theory: |
   function reverse($str)
   {
       $i = 0;
-      // Нейтральный элемент для строк это пустая строка
+      // A neutral element in terms of strings is an empty string
       $result = '';
 
       while ($i < strlen($str)) {
           $currentChar = $str[$i];
-          // Соединяем в обратном порядке
+          // Join it together it in reverse order
           $result = "{$currentChar}{$result}";
-          // Тоже самое через конкатенацию
+          // The same through concatenation
           // $result = $currentChar . $result;
           $i = $i + 1;
       }
@@ -38,19 +38,19 @@ theory: |
 
   $name = 'Bran';
   reverse($name); // 'narB'
-  // Проверка нейтрального элемента
+  // Neutral element check
   reverse(''); // ''
   ```
 
   https://replit.com/@hexlet/php-basics-loops-using-reverse
 
-  Единственный возможно сложный момент в этом коде – прочувствовать, как собирается сама строка. Так как каждый следующий символ прикрепляется к результирующей строке слева, то, в конечном итоге, строка оказывается перевернута.
+  Perhaps the only tricky part here is getting a feel of how the string itself is built. Since each next character is attached to the resulting string on the left, the string ends up reversed.
 
 instructions: |
 
-  Реализуйте функцию `mysubstr()`, которая извлекает из строки подстроку указанной длины. Она принимает на вход два аргумента (строку и длину) и возвращает подстроку начиная с первого символа:
+  Implement the `mysubstr()` function, which extracts a substring of a specified length from a string. It takes two arguments (string and length) and returns a substring starting from the first character:
 
-  Пример вызова:
+  Call example:
 
   ```php
   <?php
@@ -62,6 +62,6 @@ instructions: |
 
   https://replit.com/@hexlet/php-basics-edge-cases-mysubstr
 
-  Используйте тот же подход, что в функции для переворота строки из урока: собирайте строку-результат в цикле, перебирая начальную строку до определенного момента.
+  Use the same approach as you did for the function to flip the string from the lesson: assemble the resulting string in a loop by looping through the initial string up to a certain point.
 
-tips: []
+# tips: []
