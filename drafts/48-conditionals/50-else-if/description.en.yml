@@ -3,7 +3,7 @@
 name: Конструкция else if
 theory: |
 
-  Функция `getTypeOfSentence()` из предыдущего урока различает только вопросительные и обычные предложения. Давайте попробуем добавить поддержку восклицательных предложений:
+  The `getTypeOfSentence()` function from the previous lesson only distinguishes between questions and normal sentences. Let's try to extend it to exclamation sentences:
 
   ```php
   <?php
@@ -30,12 +30,12 @@ theory: |
   getTypeOfSentence('No!');  // 'Sentence is exclamation'
   ```
 
-  Мы добавили еще одну проверку ("exclamation" переводится «восклицание»). Технически функция работает, но с точки зрения семантики есть проблемы.
+  We've added one more check. Technically, the function works, but there are semantics issues.
 
-  - Проверка на наличие вопросительного знака происходит в любом случае, даже если уже был обнаружен восклицательный знак.
-  - Ветка `else` описана именно для первого условия, но не для второго.
+  - It checks for a question mark in any case, regardless of whether an exclamation point was found or not.
+  - The `else` branch is defined for the first condition, not for the second.
 
-  Правильнее будет воспользоваться ещё одной возможностью условной конструкции:
+  It would be better to use another conditional construction:
 
   ```php
   <?php
@@ -56,27 +56,27 @@ theory: |
   }
   ```
 
-  Теперь все условия выстроены в единую конструкцию. `elseif` — это «если не выполнено предыдущее условие, но выполнено текущее». Получается такая схема:
+  Now all the conditions are lined up in a single construction. `elseif` is "if the previous condition is not satisfied, but the current condition is satisfied". This is the scenario we get:
 
-  - если последний символ `?`, то `'question'`
-  - иначе, если последний символ `!`, то `'exclamation'`
-  - иначе `'normal'`
+  - If the last character is `?`, then it's a `'question'`
+  - otherwise, if the last character is `!`, then it's an `'exclamation'`
+  - otherwise `'normal'`
 
-  Выполнится только один из блоков кода, относящихся ко всей конструкции `if`.
+  Only one of the code blocks belonging to the entire `if` construct will be executed.
 
 instructions: |
 
-  На электронной карте Вестероса, которую реализовал Сэм, союзники Старков отображены зеленым кружком, враги — красным, а нейтральные семьи — серым.
+  The digital map of Westeros that Sam has made shows Stark allies in green, enemies in red, and neutral families in gray.
 
-  Напишите для Сэма функцию `whoIsThisHouseToStarks()`, которая принимает на вход фамилию семьи и возвращает одно из трех значений: `'friend'`, `'enemy'`, `'neutral'`.
+  Write a function called `whoIsThisHouseToStarks()` for Sam that takes the family name as input and returns one of three values: `'friend'`, `'enemy'`, `'neutral'`.
 
-  Правила определения:
+  Rules:
 
-    * Друзья (`'friend'`): 'Karstark', 'Tully'
-    * Враги (`'enemy'`): 'Lannister', 'Frey'
-    * Любые другие семьи считаются нейтральными
+    * Friends (`'friend'`): 'Karstark', 'Tully'
+    * Enemies (`'enemy'`): 'Lannister', 'Frey'
+    * Any other families are considered neutral
 
-  Примеры вызова:
+  Call examples:
 
   ```php
   <?php
@@ -87,8 +87,9 @@ instructions: |
   whoIsThisHouseToStarks('Ivanov');   // 'neutral'
   ```
 
-tips: []
+# tips: []
 
 definitions:
   - name: else if
-    description: способ задать несколько альтернативных условий.
+    description: is a way to set several alternative conditions.
+
