@@ -1,16 +1,16 @@
 ---
 
-name: Возврат из циклов
+name: Returning from loops
 theory: |
 
-  Работа с циклами обычно сводится к двум сценариям:
+  Dealing with loops usually comes down to two scenarios:
 
-  1. Агрегация. Накопление результата во время итераций и работа с ним после цикла. Переворот строки как раз относится к такому варианту.
-  2. Выполнение цикла до достижения необходимого результата и выход. Например, задача поиска простых чисел. Напомним, что простое число — это число, которое делится без остатка только на себя и на единицу.
+  1. Aggregation. Accumulating data over multiple iterations and handling it after the loop. String reversal is just one example of this.
+  2. Executing a loop until you get the required result and then ending it. For example, if the job of the loop is to find prime numbers. Remember that a prime number is a number that can only be divided by itself and one.
 
-  Рассмотрим простой алгоритм проверки простоты числа. Будем делить искомое число `x` на все числа из диапазона от двух до `x - 1` и смотреть остаток. Если в этом диапазоне не найден делитель, который делит число `x` без остатка, значит перед нами простое число.
+  Let's look at a simple algorithm to check prime numbers. We'll divide the number,`x`  by all the numbers in the range from two to `x - 1` and see the remainder. If we don't find a divisor `x` can be divided by without a remainder in this range, then we're looking at a prime number.
 
-  Если задуматься, то можно заметить, что достаточно проверять числа не до `x - 1`, а до половины числа. Например, 11 не делится на 2, 3, 4, 5. Но и дальше гарантированно не будет делиться на числа больше своей половины. Значит, можно провести небольшую оптимизацию и проверять деление только до `x / 2`.
+  If you think about it, it's actually enough to check numbers not up tov `x - 1`, but up to half the given number. For example, 11 isn't divisible by 2, 3, 4, 5. But it's also guaranteed that it can't be divided by numbers greater than its half. So, we can do a little optimization and check the division only up to `x / 2`.
 
   ```php
   <?php
@@ -40,18 +40,18 @@ theory: |
   isPrime(4); // false
   ```
 
-  Алгоритм построен таким образом, что если во время последовательного деления на числа до `x / 2` находится хоть одно, которое делит без остатка, то переданный аргумент — не простое число, а значит дальнейшие вычисления не имеют смысла. В этом месте стоит возврат `false`.
+  The algorithm is built like so: if during the successive division by numbers up to `x / 2` there is at least one result without a remainder, then the given argument is not a prime number, and therefore further calculations will be pointless. At this point, it returns `false`.
 
-  И только если цикл отработал целиком, можно сделать вывод, что число — простое, так как не было найдено ни одного числа, которое делит число без остатка.
+  And only if the entire loop is completed can we say that the number is prime, since no number by which it can be divided without a remainder can be found.
 
 instructions: |
 
-  Реализуйте функцию `hasChar()`, которая проверяет, содержит ли строка букву в указанном регистре. Функция принимает два параметра:
+  Implement a function called `hasChar()`, which checks if a string contains a letter in the specified case. The function takes two parameters:
 
-  * Строка
-  * Буква для поиска
+  * A string
+  * A letter to be found
 
-  Пример вызова:
+  Call example:
 
   ```php
   <?php
@@ -63,4 +63,4 @@ instructions: |
   ```
 
 tips:
-  - "[Список простых чисел](https://ru.wikipedia.org/wiki/Список_простых_чисел)"
+  - "[List of prime numbers](https://en.wikipedia.org/wiki/List_of_prime_numbers)"
