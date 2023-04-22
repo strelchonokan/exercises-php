@@ -1,9 +1,9 @@
 ---
 
-name: Инкремент и декремент
+name: Increment and decrement
 theory: |
 
-  Из языка Си в PHP перекочевали две операции: **инкремент** `++` и **декремент** `--`, которые очень часто встречаются вместе с циклами. Эти унарные операции увеличивают и уменьшают на единицу число, записанное в переменную.
+  Two operations are carried over from C to PHP: **Increment** `++` and **Decrement** `--`, which are very common with loops. These unary operations increment and decrement by one the number written in the variable.
 
   ```php
   <?php
@@ -16,7 +16,7 @@ theory: |
   $i--; // 1
   ```
 
-  При использовании префиксной наоборот: сначала изменение переменной, а затем возврат нового значения:
+  When using a prefix, it's the other way around: first you change the variable and then return the new value:
 
   ```php
   <?php
@@ -29,15 +29,15 @@ theory: |
   --$i; // 0
   ```
 
-  Кажется, что нет никакой разницы между постфиксной и префиксной формами. Но тут начинаются сложности.
+  It seems there's no difference between using prefix and postfix notation. But this is where it gets complicated.
 
-  В отличие от всех остальных операций, которые не имеют побочных эффектов и просто возвращают новое значение, инкремент и декремент не только возвращают значение, но и **изменяют** значение переменной.
+  Unlike other operators, which have no side-effects and simply return a new value, increment and decrement not only return a value but also change it.
 
-  При использовании префиксной нотации сначала происходит изменение переменной, а потом возврат.
+  If you use prefix notation, the variable is changed first, and then it's returned.
 
-  При использовании постфиксной нотации — наоборот: сначала возврат, а потом изменение переменной.
+  When using postfix notation, it's the other way around: first it's returned and then the variable is changed.
 
-  Правило работает одинаково для инкремента и декремента. Для простоты рассмотрим только инкремент:
+  The rule works exactly the same for both incrementing and decrementing.  For simplicity's sake, we'll only look at increments for now:
 
   ```php
   <?php
@@ -51,36 +51,36 @@ theory: |
   echo $x;   // => 7
   ```
 
-  Что происходит?
+  What's going on?
 
-  1. Вывели на экран `++$x`. Это префиксный инкремент, поэтому сначала значение переменной увеличилось на 1, потом результат вернулся и вывелся на экран.
-  2. Так как значение изменилось, `echo $x` вывел 6.
-  3. Теперь выводим на экран `$x++`. Это постфиксный инкремент, поэтому сначала значение вернулось и вывелось на экран, а потом переменная увеличилась на 1.
-  4. Так как значение изменилось, `echo $x` вывел 7.
+  1. We've printed `++$x`.  It's a prefix increment, so first the value is increased by 1, and then the result is returned and printed.
+  2. Since the value has changed, `echo $x` outputs 6.
+  3. Now display `$x++`. This is a postfix increment, so first the value was returned and displayed, and then the variable was incremented by 1.
+  4. Since the value has changed, `echo $x` outputs 7.
 
-  Инкремент и декремент способны сделать код очень сложным. Особенно страшным все становится тогда, когда инкремент вставляют внутрь других операций: `$x = $i++ - 7 + --$h`. Понять такой код невозможно, и его написание должно рассматриваться как тяжкое преступление.
+  Increment and decrement can make code very complex. Things get especially scary when increments are inserted inside other operations: `$x = $i++ - 7 + --$h`. It's impossible to understand such code, and writing it should be considered a serious crime.
 
-  Например, в языке JavaScript линтер (программа, проверяющая код) сразу начинает ругаться, когда видит использование инкремента и декремента.
+  For example, in JavaScript, the linter (the program that checks the code) immediately starts to complain when it sees increment and decrement being used.
 
-  Рекомендации по использованию:
+  Usage guidelines:
 
-  * Никогда не мешайте в рамках одного выражения операции/функции без побочных эффектов с операциями/функциями, обладающими побочными эффектами.
-  * Используйте инкремент и декремент только там, где нет разницы между префиксным и постфиксным вариантом: отдельно от всего, на своей собственной строчке кода.
+  * Never mix operations/functions that don't have side effects with operations/functions that do have side effects within a single expression.
+  * Use increment and decrement only if there's no difference between the prefix and postfix version. It should be separate from other expressions and on a separate line of code.
 
 instructions: |
 
-  Инкремент и декремент — не очень важные операции в PHP, и без них всегда можно обойтись. Задание в этом уроке не связано напрямую с этой темой, но вы можете использовать инкремент и декремент, чтобы привыкнуть к ним. В остальном это упражнение — ещё одна тренировка работы с циклами, строками и условиями.
+  Increment and decrement are not very important operations in PHP, and you can easily manage without them. The assignment in this lesson is not directly related to this topic, but you can use increment and decrement to get used to them. Otherwise, this exercise is just more practice with loops, strings, and conditions.
 
-  Напишите функцию `makeItFunny()`, которая принимает на вход строку и возвращает её копию, у которой каждый n-ный элемент переведен в верхний регистр. n – задается на входе в функцию.
+  Write a function, `makeItFunny()`, which returns a copy of a string passed to it, where each nth element is uppercase. n also needs to be passed to the function.
 
-  Для определения каждого n-ного элемента понадобится остаток от деления `%`. Подумайте, как его можно использовать.
+  To find each nth element, you will need to find the remainder from division `%`. Think about how you can use it.
 
   ```php
   <?php
 
   $text = 'I never look back';
-  // Каждый третий элемент
+  // Every third element
   makeItFunny($text, 3); // 'I NevEr LooK bAck'
   ```
 
-tips: []
+# tips: []
