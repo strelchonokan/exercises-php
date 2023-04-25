@@ -3,13 +3,13 @@
 name: mktime()
 theory: |
 
-  Функция [mktime()](https://php.net/manual/ru/function.mktime.php) генерирует timestamp по информации о времени: секундах, часах, минутах и дате.
+  The [mktime()](https://www.php.net/manual/en/function.mktime.php) function generates timestamp from time information: seconds, hours, minutes, and date.
 
   ```
   int mktime ([ int $hour = date("H") [, int $minute = date("i") [, int $second = date("s") [, int $month = date("n") [, int $day = date("j") [, int $year = date("Y") ]]]]]] )
   ```
 
-  `mktime()` — многословная функция, каждая часть даты и времени передается как отдельный параметр.
+  `mktime()` is a multi-word function, each part of the date and time is passed as a separate parameter.
 
   ```php
   <?php
@@ -19,7 +19,7 @@ theory: |
 
 instructions: |
 
-  Реализуйте функцию `getHexletBirthday()`, которая возвращает дату основания Хекслета в виде timestamp. Хекслет был основан 01.01.2012.
+  Implement the `getHexletBirthday()`, function, which returns the founding date of the Hexlet as a timestamp. Hexlet was founded on 01/01/2012.
 
   ```php
   <?php
@@ -27,6 +27,6 @@ instructions: |
   getHexletBirthday();
   ```
 
-tips: []
+# tips: []
 
-definitions: []
+# definitions: []
