@@ -1,5 +1,5 @@
 ---
 
-name: Дата и Время
+name: Date and Time
 description: |
-  Понятие времени в компьютерах. Аппаратный и Системный таймеры. Функции для работы с датой и временем в PHP. Таймзоны
+  ПThe concept of time in computers. Hardware Timer and System Timer. Functions for working with date and time in PHP. Timezones
