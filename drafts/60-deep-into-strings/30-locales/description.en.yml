@@ -1,30 +1,30 @@
 ---
 
-name: Локализация
+name: Localization
 theory: |
 
-  Глобализация проявляется во многих аспектах, например, единой системе мер: время, размеры и расстояния, температуры, даты и многое другое. Конечно, есть страны которые выпадают из общего потока, например, США, чуть ли не единственная страна, в которой сохраняется и превалирует [английская система мер](https://ru.wikipedia.org/wiki/Английская_система_мер). Она использует мили вместо километров, фунты вместо килограммов. Во многих восточных странах по-другому устроены календари, и где-то сейчас идет четырёхтысячный год. Но в целом всё унифицировано.
+  Globalization manifests itself in many aspects, such as a unified system of measurements for time, dimensions, distances, temperatures, dates, and many other things. Of course, there are countries that fall out of the general flow, for example, the United States, is one of the few countries in which [imperial units](https://en.wikipedia.org/wiki/Imperial_and_US_customary_measurement_systems) are preserved. They use miles instead of kilometers, and pounds instead of kilograms. In many Eastern countries, the calendars are arranged differently, for example, the Buddhist calendar puts the year at 2563. But on the whole, everything is unified.
 
-  Несмотря на эту унификацию, в каждой стране есть свои особенности по способу записи, сравнению и другим аспектам. Например, в США принято в датах первым ставить месяц, а затем уже день. В некоторых странах для вывода вещественных чисел используют точку, а в некоторых — запятую: `1,234`. Эти особенности не обязательно привязаны к целой стране. Внутри одной страны может быть множество дополнительных разделений. Каждый такой набор особенностей называют **локалью**, а процесс адаптации к особенностям конкретной локали — **локализацией**.
+  Despite this unification, each country has its own peculiarities in its way of recording, comparing, and other aspects. For example, in the U.S. it's customary to put the month first and then the day. Some countries use a period to output whole numbers, and some use a comma, e.g., `1,234`. These features aren't necessarily tied to an entire country. There can be many additional divisions within a single country. Each such set of features is called a locale, and the process of adapting to the features of a particular locale is called **localization**.
 
-  Локализация важна в программном обеспечении. Пользователь всегда ожидает, что любой софт (в том числе сайт) будет работать предсказуемо. В это понятие включается и локализация. Понятно, что самостоятельное решение этой задачи слишком затратно. К счастью, этого делать не нужно. Локализация обычно встроена либо в сам язык, либо в специальные библиотеки.
+  Localization is important in software. The user will always expect software (including websites) to work predictably. This includes localization. It's clear that solving this problem by yourself is no mean feat. Fortunately, you don't have to do that. Localization is usually embedded either in the language itself or in special libraries.
 
-  В PHP для управления локалью используется функция [setlocale()](https://secure.php.net/manual/ru/function.setlocale.php). Эта функция настраивает локаль глобально. То есть её вызов влияет на все последующие функции, опирающиеся на локализацию.
+  PHP uses the  [setlocale()](https://www.php.net/manual/en/function.setlocale.php) function to control the locale. This function configures the locale globally. I.e., calling it affects all subsequent functions that rely on localization.
 
   ```php
   string setlocale ( int $category , string $locale [, string $... ] )
   ```
 
-  Первым параметром эта функция принимает название категории (как константу), к которой нужно применить локаль, передающуюся в параметрах дальше.
+  The first parameter of this function takes the name of the category (like a constant) that you want to apply the locale to, which is then passed in further parameters.
 
-  * LC_ALL — всё нижеперечисленное
-  * LC_COLLATE — функции сравнения строк (см. `strcoll()`)
-  * LC_CTYPE — функции преобразования и классификации строк, например `strtoupper()`
-  * LC_MONETARY — для функции `localeconv()`
-  * LC_NUMERIC — задаёт символ десятичного разделения (см. также `localeconv()`)
-  * LC_TIME — форматирование даты/времени функцией `strftime()`
+  * LC_ALL — all of the following
+  * LC_COLLATE — string comparison functions (see `strcoll()`)
+  * LC_CTYPE — string conversion and classification functions, for example `strtoupper()`
+  * LC_MONETARY — for the `localeconv()` function
+  * LC_NUMERIC — specifies the decimal separator character (see also `localeconv()`)
+  * LC_TIME — date/time formatting with `strftime()`
 
-  Пример того, как влияет установленная локаль на отображение данных:
+  An example of how the set locale affects how data is displayed.
 
   ```php
   <?php
@@ -34,12 +34,12 @@ theory: |
   print_r(1.234); // => 1,234
   ```
 
-  Если вторым аргументом передать `0` вместо локали: `setlocale(LC_ALL, 0)`, то функция будет возвращать текущую установленную локаль для категории.
+  If you pass `0` as second argument instead of the locale: `setlocale(LC_ALL, 0)`, the function will return the currently set locale for the category.
 
 instructions: |
 
-  Выведите на экран текущую локаль для категории `LC_CTYPE`.
+  Display the current locale for the `LC_CTYPE` category.
 
-tips: []
+# tips: []
 
-definitions: []
+# definitions: []
