@@ -1,5 +1,5 @@
 ---
 
-name: Погружаясь в строки
+name: Diving into the lines
 description: |
-  Современное кодирование строк и работа с ними в PHP, используя функции для многобайтовых кодировок. Локализация.
+  СModern string encoding and handling of strings in PHP using functions for multi-byte encodings. Localization.
