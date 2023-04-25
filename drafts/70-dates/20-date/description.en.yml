@@ -3,16 +3,16 @@
 name: Date
 theory: |
 
-  Одна из главных функций по работе с датами в PHP — [date()](https://php.net/manual/ru/function.date.php). Она конвертирует timestamp в человекочитаемый формат. Первым параметром в эту функцию передается описание формата даты, которое устроено по похожему принципу как и форматы для функции [sprintf()](https://php.net/manual/ru/function.sprintf.php).
+  One of the main date functions in PHP is [date()](https://www.php.net/manual/en/function.date.php). It converts the timestamp to a human-readable format. The first parameter you need to pass to this function is the date format, which is arranged similarly to the formats for [sprintf()](https://www.php.net/manual/en/function.sprintf.php).
 
   ```php
   <?php
 
-  // Y означает год
+  // Y means year
   date('Y'); // 2018
   ```
 
-  `date()` по умолчанию использует текущее время. Но если нужно, ей можно передать конкретный timestamp.
+  `date()` uses the current time by default. But if necessary, you can pass it a specific timestamp.
 
   ```php
   <?php
@@ -20,7 +20,7 @@ theory: |
   date('M', 123123123); // Nov
   ```
 
-  Различных опций форматирования в функции `date()` — десятки. Все они подробно перечислены на странице документации. Вряд ли стоит их все запоминать, но понимать общий принцип работы — полезно. Все опции могут комбинироваться между собой в любых вариациях.
+  There are dozens of different formatting options in the `date()` function. They're all listed in detail on the documentation page. It's not at all necessary to memorize them all, but it's useful to understand the general principle of how it should work. All options can be combined with each other in any variation.
 
   ```php
   <?php
@@ -30,9 +30,9 @@ theory: |
 
 instructions: |
 
-  Допишите реализацию функции `getCustomDate()`, которая возвращает дату в формате `15/03/1985` на основе переданного timestamp.
+  Write an implementation of the `getCustomDate()` function that returns the date in the format `15/03/1985` based on the timestamp passed.
 
-  Примеры вызова:
+  Call examples:
 
   ```php
   <?php
@@ -44,6 +44,6 @@ instructions: |
 
 tips:
   - |
-    [Примеры форматов дат](https://www.php.net/manual/ru/datetime.format.php)
+    [Examples of date formats](https://www.php.net/manual/en/datetime.format.php)
 
-definitions: []
+# definitions: []
