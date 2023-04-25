@@ -1,11 +1,11 @@
 ---
 
-name: Цикл For
+name: For loop
 theory: |
 
-  Цикл `while` идеален для ситуаций, когда количество итераций неизвестно заранее, например, при поиске простого числа. Когда количество итераций известно, предпочтительнее использовать цикл `for`.
+  A `while` loop works perfectly for situations where the number of iterations isn't known in advance, e.g., finding a prime number. When we do know the number of iterations, it's better to use a `for` loop.
 
-  Посмотрим реализацию переворота строки через цикл `for`:
+  Let's have a look at a function that reverses strings using a `for` loop:
 
   ```php
   <?php
@@ -25,19 +25,19 @@ theory: |
 
   https://replit.com/@hexlet/php-basics-for-reversestring
 
-  Можно читать так: *«цикл с индексом `$i` повторяется пока `$i < strlen($str)` и после каждого шага увеличивает `$i` на 1»*.
+  You can read it like this: *«the loop with index `$i` repeats until `$i < strlen($str)` and after each step increases `$i` by 1»*.
 
-  1. Начальное значение счётчика. Этот код выполняется ровно один раз перед первой итерацией.
-  2. Предикат-условие повторения циклов. Выполняется на каждой итерации. Точно так же как и в `while`
-  3. Описание изменения счётчика. Этот код выполняется в конце каждой итерации.
+  1. The initial counter value. This code runs exactly once before the first iteration.
+  2. Predicate condition to decide when cycle repeats. It's executed on each iteration. This is exactly what we have with `while`
+  3. Description of the counter change. This code is executed at the end of each iteration.
 
-  В остальном принцип работы точно такой же, как у цикла `while`.
+  Other than that, it works exactly the same as a `while` loop.
 
 instructions: |
 
-  Реализуйте функцию `sumOfSeries()`, которая считает сумму [ряда целых чисел](https://ru.wikipedia.org/wiki/Числовой_ряд). Ряд задаётся двумя числами — начальным и конечным.
+  Implement a function called `sumOfSeries()`, which counts the sum of [a series of integers](https://en.wikipedia.org/wiki/Series_(mathematics)). A series is given using two numbers, a start number and an end number.
 
-  Функция принимает два аргумента-числа и возвращает сумму ряда. Например, для аргументов `4` и `7` сумма будет `4 + 5 + 6 + 7 = 22`.
+  The function takes two number arguments and returns the sum of the series. For example, if you pass `4` and `7` as arguments, the sum will be `4 + 5 + 6 + 7 = 22`.
 
   ```php
   <?php
@@ -47,7 +47,7 @@ instructions: |
   sumOfSeries(4, 7); // 22
   ```
 
-  Если начальное и конечное числа равны, то результатом будет то же число:
+  If the initial and final numbers are equal, the result will be the same number:
 
   ```php
   <?php
@@ -55,4 +55,4 @@ instructions: |
   sumOfSeries(1, 1); // 1
   ```
 
-tips: []
+# tips: []
