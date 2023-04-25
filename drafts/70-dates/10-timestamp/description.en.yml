@@ -1,15 +1,15 @@
 ---
 
-name: Время
+name: Time
 theory: |
 
-  Вы когда-нибудь задумывались о том, как хранится в компьютере время? Включение и выключение компьютера никак не влияет на часы. Можно сделать вывод, что часы в компьютере работают сами по себе.
+  Have you ever wondered how time is stored in a computer? Turning the computer on and off has no effect on the clock. We can there conclude that the clock in the computer works by itself.
 
-  Это действительно так. Основные часы компьютера — аппаратные, они живут самостоятельной жизнью и имеют свою собственную батарею. При включении компьютер считывает данные этих часов, записывает к себе в память и начинает самостоятельно отсчитывать время. Эти часы называются системными. Любое изменение системных часов влияет и на аппаратные.
+  This is very much the case. The computer's main clock is a hardware clock, it lives its own life and has its own battery. When you turn on the computer, it reads the data from this clock, writes it to its memory and starts counting the time itself. This clock is called a system clock. Any change in the system clock will also affect the hardware clock.
 
-  В большинстве операционных систем (Linux, Unix, MacOS) системное время представляется в формате Unix time. Оно определяется как количество секунд, прошедших с полуночи (00:00:00 UTC) 1 января 1970 года (четверг). Время с этого момента называют «эрой Unix» (Unix Epoch). Unix-время представлено целым числом, которое увеличивается с каждой прошедшей секундой без необходимости вычислений для определения года, месяца, дня, часа или минуты для удобства восприятия человеком.
+  In most operating systems (Linux, Unix, MacOS) the system time is presented in Unix time format. It's defined as the number of seconds elapsed since midnight (00:00:00 UTC) on January 1, 1970 (Thursday). The time since then is called the "Unix Epoch". Unix time is represented by an integer number which is incremented with each passing second without needing calculations to determine the year, month, day, hour or minute, which is easy for people to understand.
 
-  Конкретная дата в формате Unix time называется timestamp (временной штамп). Например, для получения текущего timestamp в PHP используется функция `time()`.
+  A specific date in Unix time format is called a timestamp. For example, PHP uses the `time()` function to get the current timestamp.
 
   ```php
   <?php
@@ -19,9 +19,9 @@ theory: |
 
 instructions: |
 
-  Допишите реализацию функции `getYear()`, которая возвращает год переданного timestamp:
+  Complete the implementation of the `getYear()` function, which returns the year of the timestamp passed:
 
-  Примеры вызова:
+  Call examples:
 
   ```php
   <?php
@@ -29,9 +29,9 @@ instructions: |
   getYear(1532435204); // 2018
   ```
 
-  * Для округления в нижнюю сторону воспользуйтесь функцией [floor()](https://php.net/manual/ru/function.floor.php)
-  * Не забудьте потом привести получившееся число к типу `int`
+  * To round down, use the  [floor()](https://www.php.net/manual/en/function.floor.php)
+  * Don't forget to convert the resulting number to the `int` type
 
-tips: []
+# tips: []
 
-definitions: []
+# definitions: []
